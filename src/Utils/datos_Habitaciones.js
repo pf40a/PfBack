@@ -320,31 +320,31 @@ export const datos_habitaciones= [
   {
     HabitacionDetalleId:54,
     nroHabitacion: 606,
-    nivel: "piso 7",
+    nivel: "piso 6",
     estado:"activo",
   },
   {
     HabitacionDetalleId:55,
     nroHabitacion: 607,
-    nivel: "piso 8",
+    nivel: "piso 6",
     estado:"activo",
   },
   {
     HabitacionDetalleId:56,
     nroHabitacion: 608,
-    nivel: "piso 9",
+    nivel: "piso 6",
     estado:"activo",
   },
   {
     HabitacionDetalleId:57,
     nroHabitacion: 609,
-    nivel: "piso 10",
+    nivel: "piso 6",
     estado:"activo",
   },
   {
     HabitacionDetalleId:58,
     nroHabitacion: 610,
-    nivel: "piso 11",
+    nivel: "piso 6",
     estado:"activo",
   },
 ];
