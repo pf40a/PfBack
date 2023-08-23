@@ -36,10 +36,11 @@ const Usuarios = sequelize.define(
       allowNull: false,
       defaultValue: false,
     },
-    estado: {
+    //Borrado lógico
+    deleted: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: true,
+      defaultValue: false,
     },
     //createdAt  //updatedAt
   },

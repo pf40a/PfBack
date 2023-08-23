@@ -52,10 +52,11 @@ const Clientes = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    //ACTIVO - INACTIVO
-    estado: {
-      type: DataTypes.STRING,
+    //Borrado Logico
+    deleted: {
+      type: DataTypes.BOOLEAN,
       allowNull: false,
+      defaultValue: false
     },
   },
   {

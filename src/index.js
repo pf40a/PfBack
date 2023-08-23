@@ -19,7 +19,7 @@ app.use(morgan("dev"));
 app.use(cors());
 
 // MAIN ROUTER
-app.use("/pf", router);
+app.use("/hotel", router);
 
 // SEQUELIZE - alter:true // force:false
 sequelize

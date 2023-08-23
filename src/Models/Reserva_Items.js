@@ -24,10 +24,11 @@ const Reserva_Items = sequelize.define(
       allowNull: false,
     },
 
-    //Anulada, Activo, Inactivo
-    estado: {
-      type: DataTypes.STRING,
+    //Borrado lógico
+    deleted: {
+      type: DataTypes.BOOLEAN,
       allowNull: false,
+      defaultValue: false,
     },
     
   },
