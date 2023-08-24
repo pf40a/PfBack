@@ -1,14 +1,14 @@
 const { Router } = require("express");
-
+const { postClientHandler, getClientByIdHandler, getClientesHandler, deleteClientHandler, disableClientHandler, putClientHandler} = require("../Handlers/clientesHandler")
 const clientesRouter = Router();
 
 // http://localhost:3001/hotel/clientes
 
-// clientesRouter.get("/", getClientesHandler)
-// clientesRouter.get("/:id", getClientesByIdHandler);
-// clientesRouter.delete("/:id", deleteClientesHandler);
-// clientesRouter.delete("/disable/:id", disableClientesHandler);
-// clientesRouter.post("/", postClientesHandler);
-// clientesRouter.put("/:id", putClientesHandler);
+ clientesRouter.get("/", getClientesHandler)
+ clientesRouter.get("/:id", getClientByIdHandler);
+ clientesRouter.delete("/:id", deleteClientHandler);
+ clientesRouter.delete("/disable/:id", disableClientHandler);
+ clientesRouter.post("/", postClientHandler);
+ clientesRouter.put("/:id", putClientHandler);
 
 module.exports = clientesRouter;
