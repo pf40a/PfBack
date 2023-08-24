@@ -33,7 +33,7 @@ const Habitacion_Detalles = sequelize.define(
       defaultValue: false,
     },
     caracteristica: {
-      type: DataTypes.ARRAY,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     capacidad: {
