@@ -4,11 +4,11 @@ const clientesRouter = Router();
 
 // http://localhost:3001/hotel/clientes
 
-// userRouter.get("/", getClientesHandler)
-// userRouter.get("/:id", getClientesByIdHandler);
-// userRouter.delete("/:id", deleteClientesHandler);
-// userRouter.delete("/disable/:id", disableClientesHandler);
-// userRouter.post("/", postClientesHandler);
-// userRouter.put("/:id", putClientesHandler);
+// clientesRouter.get("/", getClientesHandler)
+// clientesRouter.get("/:id", getClientesByIdHandler);
+// clientesRouter.delete("/:id", deleteClientesHandler);
+// clientesRouter.delete("/disable/:id", disableClientesHandler);
+// clientesRouter.post("/", postClientesHandler);
+// clientesRouter.put("/:id", putClientesHandler);
 
 module.exports = clientesRouter;

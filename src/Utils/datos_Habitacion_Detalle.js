@@ -1,4 +1,4 @@
-export const datos_Habitacion_Detalle = [
+const datos_Habitacion_Detalle = [
 
   // ------- INDIVIDUAL -------
 
@@ -8,7 +8,7 @@ export const datos_Habitacion_Detalle = [
     subTipo: "Economica",
     descripcion:
       "La habitación individual es perfecta para viajeros solitarios que buscan comodidad y privacidad a un precio asequible. Está diseñada para proporcionar una estancia acogedora y conveniente para una persona.",
-    caracteristica: ["Espacio pequeña"],
+    caracteristica: "Espacio pequeña",
     capacidad: 1,
     image: "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/01+-+Individual+-+Economica.jpg",
   },
@@ -19,7 +19,7 @@ export const datos_Habitacion_Detalle = [
     subTipo: "Confort",
     descripcion:
       "La habitación individual es perfecta para viajeros solitarios que buscan comodidad y privacidad a un precio asequible. Está diseñada para proporcionar una estancia acogedora y conveniente para una persona.",
-    caracteristica: ["Area de estar pequeña"],
+    caracteristica: "Area de estar pequeña",
     capacidad: 1,
     image: "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/02+-+Individual+-+Confort.jpg",
   },
@@ -30,7 +30,7 @@ export const datos_Habitacion_Detalle = [
     subTipo: "Gold",
     descripcion:
       "La habitación individual es perfecta para viajeros solitarios que buscan comodidad y privacidad a un precio asequible. Está diseñada para proporcionar una estancia acogedora y conveniente para una persona.",
-    caracteristica: ["Area de estar espaciosa"],
+    caracteristica: "Area de estar espaciosa",
     capacidad: 1,
     image: "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/03+-+Individual+-+Gold.jpg",
   },
@@ -43,7 +43,7 @@ export const datos_Habitacion_Detalle = [
     subTipo: "Economica",
     descripcion:
       "La habitación doble es ideal para parejas o amigos que viajan juntos. Ofrece espacio adicional y comodidades para una estancia más cómoda.",
-    caracteristica: ["Area de trabajo compartida"],
+    caracteristica: "Area de trabajo compartida",
     capacidad: 2,
     image: "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/04+-+Doble-+Economica.jpg",
   },
@@ -53,7 +53,7 @@ export const datos_Habitacion_Detalle = [
     subTipo: "Confort",
     descripcion:
       "La habitación doble es ideal para parejas o amigos que viajan juntos. Ofrece espacio adicional y comodidades para una estancia más cómoda.",
-    caracteristica: ["Sala de estar pequeña", "Areas de trabajo separadas"],
+    caracteristica: "Sala de estar pequeña, Areas de trabajo separadas",
     capacidad: 2,
     image: "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/05+-+Doble+-+Confort.jpg",
   },
@@ -63,7 +63,7 @@ export const datos_Habitacion_Detalle = [
     subTipo: "Gold",
     descripcion:
       "La habitación doble es ideal para parejas o amigos que viajan juntos. Ofrece espacio adicional y comodidades para una estancia más cómoda.",
-    caracteristica: ["Area de estar espaciosa"],
+    caracteristica: "Area de estar espaciosa",
     capacidad: 2,
     image: "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/06+-+Doble-+Confort.jpg",
   },
@@ -76,7 +76,7 @@ export const datos_Habitacion_Detalle = [
     subTipo: "Economica",
     descripcion:
       "La habitación familiar es perfecta para grupos o familias que desean compartir una estancia cómoda y conveniente.",
-    caracteristica: ["Sin sala de estar"],
+    caracteristica: "Sin sala de estar",
     capacidad: 3,
     image: "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/07+-+Familiar+-+Economica.jpg",
   },
@@ -86,7 +86,7 @@ export const datos_Habitacion_Detalle = [
     subTipo: "Confort",
     descripcion:
       "La habitación familiar es perfecta para grupos o familias que desean compartir una estancia cómoda y conveniente.",
-    caracteristica: ["Sala de estar espaciosa", "2 baños"],
+    caracteristica: "Sala de estar espaciosa, 2 baños",
     capacidad: 5,
     image: "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/08+-+Familiar+-+Confort.jpg",
   },
@@ -96,7 +96,7 @@ export const datos_Habitacion_Detalle = [
     subTipo: "Gold",
     descripcion:
       "La habitación familiar es perfecta para grupos o familias que desean compartir una estancia cómoda y conveniente.",
-    caracteristica: ["Sala de estar espaciosa", "3 hambientes", "3 baños"],
+    caracteristica: "Sala de estar espaciosa, 3 hambientes, 3 baños",
     capacidad: 7,
     image: "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/09+-+Familiar+-+Gold.jpg",
   },
@@ -109,7 +109,7 @@ export const datos_Habitacion_Detalle = [
     subTipo: "Economica",
     descripcion:
       "Nuestra habitación matrimonial es perfecta para parejas en busca de comodidad y relajación, con una cama king-size y todas las comodidades que necesitas.",
-    caracteristica: ["Experiencia romántica", "Habitaciones: 1"],
+    caracteristica: "Experiencia romántica, Habitaciones: 1",
     capacidad: 2,
     image: "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/13+-+Matrimonial+-+Economica.jpg",
   },
@@ -119,7 +119,7 @@ export const datos_Habitacion_Detalle = [
     subTipo: "Confort",
     descripcion:
       "Nuestra habitación matrimonial es perfecta para parejas en busca de comodidad y relajación, con una cama king-size y todas las comodidades que necesitas.",
-    caracteristica: ["Experiencia romántica", "Sala de estar", "Espaciosa", "Habitaciones: 1"],
+    caracteristica: "Experiencia romántica, Sala de estar, Espaciosa, Habitaciones: 1",
     capacidad: 2,
     image: "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/14+-+Matrimonial+-+Confort.jpg",
   },
@@ -129,7 +129,7 @@ export const datos_Habitacion_Detalle = [
     subTipo: "Gold",
     descripcion:
       "Nuestra habitación matrimonial es perfecta para parejas en busca de comodidad y relajación, con una cama king-size y todas las comodidades que necesitas.",
-    caracteristica: ["Experiencia romántica", "Sala de estar", "Espaciosa", "Cocina privada", "Servicios de consejeria", "Servicios románticos", "Habitaciones: 1"],
+    caracteristica: "Experiencia romántica, Sala de estar, Espaciosa, Cocina privada, Servicios de consejeria, Servicios románticos, Habitaciones: 1",
     capacidad: 2,
     image: "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/15+-+Matrimonial+-+Gold.jpg",
   },
@@ -142,8 +142,8 @@ export const datos_Habitacion_Detalle = [
     subTipo: "Economica",
     descripcion:
       "La habitación ejecutiva está diseñada para viajeros de negocios que buscan comodidades y servicios adicionales para una estancia productiva y relajante.",
-    caracteristica: ["Area de trabajo pequeña"],
-    capacidad: 2,
+    caracteristica: "Area de trabajo pequeña",
+    capacidad: 3,
     image: "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/10+-+Ejecutiva+-+Economica.webp",
   },
   {
@@ -152,8 +152,8 @@ export const datos_Habitacion_Detalle = [
     subTipo: "Confort",
     descripcion:
       "La habitación ejecutiva está diseñada para viajeros de negocios que buscan comodidades y servicios adicionales para una estancia productiva y relajante.",
-    caracteristica: ["Area de trabajo espaciosa"],
-    capacidad: 2,
+    caracteristica: "Area de trabajo espaciosa",
+    capacidad: 5,
     image: "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/11+-+Ejecutiva+-+Confort.jpg",
   },
   {
@@ -162,8 +162,8 @@ export const datos_Habitacion_Detalle = [
     subTipo: "Gold",
     descripcion:
       "La habitación ejecutiva está diseñada para viajeros de negocios que buscan comodidades y servicios adicionales para una estancia productiva y relajante.",
-    caracteristica: ["Sala de reunión", "Area de trabajo espaciosa", "Servicios de conserjería", "Habitaciones: 2"],
-    capacidad: 3,
+    caracteristica: "Sala de reunión, Area de trabajo espaciosa, Servicios de conserjería, Habitaciones: 2",
+    capacidad: 8,
     image: "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/12+-+Ejecutiva+-+Gold.jpg",
   },
 
@@ -175,8 +175,8 @@ export const datos_Habitacion_Detalle = [
     subTipo: "Economica",
     descripcion:
       "La habitación VIP ofrece una experiencia de lujo exclusiva para aquellos que buscan la máxima comodidad y atención personalizada.",
-    caracteristica: ["Experiencia VIP", "Servicios VIP", "Sala de estar", "Habitaciones: 2"],
-    capacidad: 1,
+    caracteristica: "Experiencia VIP, Servicios VIP, Sala de estar, Habitaciones: 2",
+    capacidad: 3,
     image: "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/16+-+Vip-+Economica.jpg",
   },
   {
@@ -185,8 +185,8 @@ export const datos_Habitacion_Detalle = [
     subTipo: "Confort",
     descripcion:
       "La habitación VIP ofrece una experiencia de lujo exclusiva para aquellos que buscan la máxima comodidad y atención personalizada.",
-    caracteristica: ["Experiencia VIP", "Servicios VIP", "Sala de estar", "Habitaciones: 3", "Suite", "Comedor", "Cocina privada"],
-    capacidad: 1,
+    caracteristica: "Experiencia VIP, Servicios VIP, Sala de estar, Habitaciones: 3, Suite, Comedor, Cocina privada",
+    capacidad: 5,
     image: "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/17+-+Vip-+Confort.jpg",
   },
   {
@@ -195,8 +195,10 @@ export const datos_Habitacion_Detalle = [
     subTipo: "Gold",
     descripcion:
       "La habitación VIP ofrece una experiencia de lujo exclusiva para aquellos que buscan la máxima comodidad y atención personalizada.",
-    caracteristica: ["Experiencia VIP", "Servicios VIP", "Sala de estar", "Habitaciones: 3", "Suite", "Comedor", "Cocina privada", "Jacuzzi", "Área de trabajo"],
-    capacidad: 1,
+    caracteristica: "Experiencia VIP, Servicios VIP, Sala de estar, Habitaciones: 3, Suite, Comedor, Cocina privada, Jacuzzi, Área de trabajo",
+    capacidad: 8,
     image: "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/18+-+Vip-+Gold.jpg",
   },
 ];
+
+module.exports = datos_Habitacion_Detalle;

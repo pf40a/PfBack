@@ -4,11 +4,11 @@ const reviewsRouter = Router();
 
 // http://localhost:3001/hotel/reviews
 
-// userRouter.get("/", getReviewsHandler)
-// userRouter.get("/:id", getReviewsByIdHandler);
-// userRouter.delete("/:id", deleteReviewsHandler);
-// userRouter.delete("/disable/:id", disableReviewsHandler);
-// userRouter.post("/", postReviewsHandler);
-// userRouter.put("/:id", putReviewsHandler);
+// reviewsRouter.get("/", getReviewsHandler)
+// reviewsRouter.get("/:id", getReviewsByIdHandler);
+// reviewsRouter.delete("/:id", deleteReviewsHandler);
+// reviewsRouter.delete("/disable/:id", disableReviewsHandler);
+// reviewsRouter.post("/", postReviewsHandler);
+// reviewsRouter.put("/:id", putReviewsHandler);
 
 module.exports = reviewsRouter;

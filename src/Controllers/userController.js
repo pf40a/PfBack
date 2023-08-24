@@ -15,7 +15,7 @@ const getUserLogin = async (email, password) => {
     where: { email: email, deleted: false },
   });
   if (!findUserByEmail) return { error: "Email incorrecto" };
-  
+
   if (findUserByEmail?.password === password)
   return { data: findUserByEmail, msg: "Usuario logeado" };
   return { error: "Password Incorrecto" };
@@ -89,7 +89,6 @@ const putUser = async (id, nombre, apellido, password, admin) => {
     findUser.admin = false;
   }
  
-
   await findUser.save();
 
   if(!findUser) return {error: "No se guardó los cambios"}

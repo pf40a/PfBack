@@ -1,18 +1,16 @@
-const { DataTypes, UUIDV4 } = require("sequelize");
+const { DataTypes} = require("sequelize");
 const sequelize = require("../db.js");
 
 const Habitacion_Detalles = sequelize.define(
   "Habitacion_Detalles",
   {
     id: {
-      type: DataTypes.UUID,
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
       primaryKey: true,
-      defaultValue: UUIDV4,
+      
     },
-    /* detalleHabitacion_id: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    }, */
+    
     precio: {
       type: DataTypes.DOUBLE,
       allowNull: false,

@@ -4,11 +4,11 @@ const reservasRouter = Router();
 
 // http://localhost:3001/hotel/reservas
 
-// userRouter.get("/", getReservasHandler)
-// userRouter.get("/:id", getReservasByIdHandler);
-// userRouter.delete("/:id", deleteReservasHandler);
-// userRouter.delete("/disable/:id", disableReservasHandler);
-// userRouter.post("/", postReservasHandler);
-// userRouter.put("/:id", putReservasHandler);
+// reservasRouter.get("/", getReservasHandler)
+// reservasRouter.get("/:id", getReservasByIdHandler);
+// reservasRouter.delete("/:id", deleteReservasHandler);
+// reservasRouter.delete("/disable/:id", disableReservasHandler);
+// reservasRouter.post("/", postReservasHandler);
+// reservasRouter.put("/:id", putReservasHandler);
 
 module.exports = reservasRouter;

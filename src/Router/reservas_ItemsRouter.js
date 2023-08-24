@@ -4,11 +4,11 @@ const reserva_ItemsRouter = Router();
 
 // http://localhost:3001/hotel/reservas/items
 
-// userRouter.get("/", getReserva_ItemsHandler)
-// userRouter.get("/:id", getReserva_ItemsByIdHandler);
-// userRouter.delete("/:id", deleteReserva_ItemsHandler);
-// userRouter.delete("/disable/:id", disableReserva_ItemsHandler);
-// userRouter.post("/", postReserva_ItemsHandler);
-// userRouter.put("/:id", putReserva_ItemsHandler);
+// reserva_ItemsRouter.get("/", getReserva_ItemsHandler)
+// reserva_ItemsRouter.get("/:id", getReserva_ItemsByIdHandler);
+// reserva_ItemsRouter.delete("/:id", deleteReserva_ItemsHandler);
+// reserva_ItemsRouter.delete("/disable/:id", disableReserva_ItemsHandler);
+// reserva_ItemsRouter.post("/", postReserva_ItemsHandler);
+// reserva_ItemsRouter.put("/:id", putReserva_ItemsHandler);
 
 module.exports = reserva_ItemsRouter;

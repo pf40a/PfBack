@@ -4,10 +4,10 @@ const habitacion_DetallesRouter = Router();
 
 // http://localhost:3001/hotel/habitacion/detalle
 
-// userRouter.get("/", getHabitacionDetallesHandler)
-// userRouter.get("/:id", getHabitacionDetallesByIdHandler);
-// userRouter.delete("/:id", deleteHabitacionDetallesHandler);
-// userRouter.post("/", postHabitacionDetallesHandler);
-// userRouter.put("/:id", putHabitacionDetallesHandler);
+// habitacion_DetallesRouter.get("/", getHabitacionDetallesHandler)
+// habitacion_DetallesRouter.get("/:id", getHabitacionDetallesByIdHandler);
+// habitacion_DetallesRouter.delete("/:id", deleteHabitacionDetallesHandler);
+// habitacion_DetallesRouter.post("/", postHabitacionDetallesHandler);
+// habitacion_DetallesRouter.put("/:id", putHabitacionDetallesHandler);
 
 module.exports = habitacion_DetallesRouter;
