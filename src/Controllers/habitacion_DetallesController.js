@@ -1,5 +1,6 @@
 // Importando el modelo
 const Habitacion_Detalles = require("../Models/Habitacion_Detalles.js");
+const Habitaciones = require("../Models/Habitaciones.js");
 
 // Función para obtener todas las Habitaciones
 const getRooms = async () => {
@@ -44,6 +45,12 @@ const deleteRooms = async (id) => {
     if (deleteRoom === 0) {
       return { error: "Habitación no encontrada" };
     }
+    // ELIMINA las habitaciones de este Detalle
+    await Habitaciones.destroy({
+      where: {
+        HabitacionDetalleId: null,
+      },
+    });
 
     return { data: deleteRoom, msg: "Habitación eliminada exitosamente" };
   }

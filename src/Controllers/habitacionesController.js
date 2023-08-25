@@ -19,7 +19,7 @@ const getRooms = async () => {
             "capacidad",
             "image",
           ],
-          through: { attributes: [] },
+         // through: { attributes: [] },
         },
       ],
     });
@@ -52,7 +52,7 @@ const getRoomsId = async (id) => {
             "capacidad",
             "image",
           ],
-          through: { attributes: [] },
+         // through: { attributes: [] },
         },
       ],
     });
@@ -76,7 +76,7 @@ const deleteRooms = async (id) => {
     if (deleteRoom === 0) {
       return { error: "Habitación no encontrada" };
     }
-
+    
     return { data: deleteRoom, msg: "Habitación eliminada exitosamente" };
   } catch (error) {
     return { error: "Error al eliminar la habitación:", error };

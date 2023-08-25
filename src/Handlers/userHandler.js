@@ -27,7 +27,7 @@ const getUserLoginHandler = async(req, res) =>{
   }
 };
 
-//Ruta para buscar un usuario al hacer LOGIN
+//Ruta para buscar un usuario por ID
 const getUserByIdHandler = async(req, res) =>{
 
   try {
@@ -58,7 +58,7 @@ const postUserHandler = async(req, res) =>{
   }
 };
 
-//Ruta para buscar un usuario al hacer LOGIN
+//Ruta para ELIMINAR un usuario al hacer LOGIN
 const deleteUserHandler = async(req, res) =>{
 
   try {
@@ -91,8 +91,8 @@ const disableUserHandler = async(req, res) =>{
 const putUserHandler = async(req, res) =>{
   try {
     const { id } = req.params
-    const {nombre, apellido, password, admin} = req.body
-    const resultado = await putUser(id, nombre, apellido, password, admin);
+    const {nombre, apellido, password, admin, deleted} = req.body
+    const resultado = await putUser(id, nombre, apellido, password, admin, deleted);
     
     if (resultado.error) return res.status(400).json(resultado);
     return res.status(200).json(resultado);

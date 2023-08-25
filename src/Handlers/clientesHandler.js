@@ -74,8 +74,8 @@ const disableClientHandler = async(req, res) =>{
   const putClientHandler = async(req, res) =>{
   try {
     const { id } = req.params
-    const {nombre, apellidos, email, tipo_Documento, doc_Identidad, fechaNacimiento, pais, ciudad, nroCelular, direccion} = req.body
-    const response = await putClient(nombre, apellidos, email, tipo_Documento, doc_Identidad, fechaNacimiento, pais, ciudad, nroCelular, direccion, id);
+    const {nombre, apellidos, email, tipo_Documento, fechaNacimiento, pais, ciudad, nroCelular, direccion, deleted} = req.body
+    const response = await putClient(nombre, apellidos, email, tipo_Documento, fechaNacimiento, pais, ciudad, nroCelular, direccion, deleted, id);
     
     if (response.error) return res.status(401).json(response.error);
     return res.status(200).json(response);

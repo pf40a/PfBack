@@ -62,6 +62,7 @@ const deleteUser = async (id) => {
     },
   });
   if (!userEliminado) return { error: "Usuario no existe" }
+  //ELIMINA las Reviews del USUARIO ELIMINADO
   await Reviews.destroy({
     where: {
       UsuarioId: null, 
@@ -84,7 +85,7 @@ const disableUser = async (id) => {
 };
 
 // MODIFICAR UN USUARIO
-const putUser = async (id, nombre, apellido, password, admin) => {
+const putUser = async (id, nombre, apellido, password, admin, deleted) => {
   const findUser = await Usuarios.findByPk(id);
   if (!findUser) return { error: "Usuario no existe" };
 
@@ -97,7 +98,11 @@ const putUser = async (id, nombre, apellido, password, admin) => {
   } else {
     findUser.admin = false;
   }
- 
+ if (deleted === true) {
+   findUser.deleted = true;
+ } else {
+   findUser.deleted = false;
+ }
   await findUser.save();
 
   if(!findUser) return {error: "No se guardó los cambios"}

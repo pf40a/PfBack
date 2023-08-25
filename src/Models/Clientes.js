@@ -4,14 +4,15 @@ const sequelize = require("./../db");
 const Clientes = sequelize.define(
   "Clientes",
   {
-    id: {
+    /* id: {
       type: DataTypes.UUID,
       primaryKey: true,
       defaultValue: UUIDV4,
-    },
+    }, */
 
     doc_Identidad: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
+      primaryKey: true,
       allowNull: false,
     },
     //Doc. Identidad, pasaporte, carnet de extranjeria u otro
@@ -56,7 +57,7 @@ const Clientes = sequelize.define(
     deleted: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: false
+      defaultValue: false,
     },
   },
   {

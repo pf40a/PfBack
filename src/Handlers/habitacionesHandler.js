@@ -15,8 +15,9 @@ const getHabitacionesHandler = async (req, res) => {
       return res.status(400).json(resultado);
     }
     return res.status(200).json(resultado);
+
   } catch (error) {
-    return res.status(401).json(error);
+    return res.status(401).json({ error: error.message });
   }
 };
 
@@ -31,7 +32,8 @@ const getHabitacionesByIdHandler = async (req, res) => {
     }
     return res.status(200).json(resultado);
   } catch (error) {
-    return res.status(401).json(error);
+
+       return res.status(401).json({ error: error.message });
   }
 };
 
@@ -45,8 +47,9 @@ const deleteHabitacionesHandler = async (req, res) => {
       return res.status(400).json(resultado);
     }
     return res.status(200).json(resultado);
+
   } catch (error) {
-    return res.status(401).json(error);
+       return res.status(401).json({ error: error.message });
   }
 };
 
@@ -64,8 +67,9 @@ const putHabitacionesHandler = async (req, res) => {
       return res.status(400).json(resultado);
     }
     return res.status(200).json(resultado);
+
   } catch (error) {
-    return res.status(401).json(error);
+       return res.status(401).json({ error: error.message });
   }
 };
 
@@ -82,8 +86,10 @@ const postHabitacionesHandler = async (req, res) => {
       return res.status(400).json(resultado);
     }
     return res.status(200).json(resultado);
+    
   } catch (error) {
-    return res.status(401).json(error);
+    //return res.status(401).json(error);
+    return res.status(401).json({ error: error.message });
   }
 };
 

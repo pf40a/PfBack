@@ -88,13 +88,17 @@ const disableReview= async (id) => {
 };
 
 // MODIFICAR UNA REVIEW
-const putReview = async (id, rating, comentario) => {
+const putReview = async (id, rating, comentario, deleted) => {
   const findReview = await Reviews.findByPk(id);
   if (!findReview) return { error: "Review no existe" };
 
   if (rating) findReview.rating = rating;
   if (comentario) findReview.comentario = comentario;
-
+  if (deleted === true) {
+     findReview.deleted = true;
+  } else {
+     findReview.deleted = false;
+  }
   await findReview.save();
 
   if (!findReview) return { error: "No se guardó los cambios" };

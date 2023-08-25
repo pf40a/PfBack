@@ -10,11 +10,11 @@ const reviewsRouter = require("./reviewsRouter");
 const router = Router();
 
 router.use("/users", userRouter);  // http://localhost:3001/hotel/users
- router.use("/clientes", clientesRouter);  // http://localhost:3001/hotel/clientes
- router.use("/habitaciones/detalle", habitacion_DetallesRouter);
- router.use("/habitaciones", habitacionesRouter);
- router.use("/reservas", reservasRouter);
- router.use("/reservas/items", reserva_ItemsRouter)
- router.use("/reviews", reviewsRouter)
+router.use("/clientes", clientesRouter);  // http://localhost:3001/hotel/clientes
+router.use("/habitaciones/detalle", habitacion_DetallesRouter);
+router.use("/habitaciones", habitacionesRouter);
+router.use("/reservas", reservasRouter);
+router.use("/reservas/items", reserva_ItemsRouter)
+router.use("/reviews", reviewsRouter)
 
 module.exports = router;

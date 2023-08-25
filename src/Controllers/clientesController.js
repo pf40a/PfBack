@@ -3,34 +3,37 @@ const { Clientes } = require("../Models/Relations")
 // GET ALL CLIENTES
 const getClientes = async () => {
     const findClientes = await Clientes.findAll()
-    if (!findClientes) return { error: "Los clientes aun no fueron subidos a la BD" };
+    if (!findClientes || !findClientes.length) return { error: "Los clientes aun no fueron subidos a la BD" };
     return { data: findClientes };
   };
   //GET CLIENTE POR ID
   const getClienteById = async (id) => {
     const findCliente = await Clientes.findOne({
       where: {
-      id: id,
+      doc_Identidad: id,
       },
-    });
+    }); 
     if (!findCliente) return { error: "El cliente es inexistente o el id es incorrecto" };
     
     return { data: findCliente };
   };
   //POST - CREA UN NUEVO CLIENTE
-const postCliente = async (nombre, apellidos, email, tipo_Documento, doc_Identidad, fechaNacimiento, pais, ciudad, nroCelular, direccion ) => {
-    const client = await Clientes.findOrCreate({ where: {
-         email,
-         nombre,
-         apellidos,
-         tipo_Documento,
-         doc_Identidad,
-         fechaNacimiento,
-         pais,
-         ciudad,
-         nroCelular,
-         direccion 
-     } });
+const postCliente = async (nombre, apellidos, email, tipo_Documento, doc_Identidad, fechaNacimiento, pais, ciudad, nroCelular, direccion) => {
+  
+  const client = await Clientes.findOrCreate({
+    where: { doc_Identidad },
+    defaults: {
+      email,
+      nombre,
+      apellidos,
+      tipo_Documento,
+      fechaNacimiento,
+      pais,
+      ciudad,
+      nroCelular,
+      direccion,
+    },
+  });
     ;
     if (!client[1]) return { error: "Cliente ya existente" };
     return { data: client, msg: "Cliente creado" };
@@ -39,7 +42,7 @@ const postCliente = async (nombre, apellidos, email, tipo_Documento, doc_Identid
 const deleteCliente = async (id) => {
     const ClienteDeleted = await Clientes.destroy({
       where: {
-      id: id,
+      doc_Identidad: id,
       },
     });
     if(!ClienteDeleted) return {error: "Cliente inexistente o id incorrecto"}
@@ -49,7 +52,7 @@ const deleteCliente = async (id) => {
 const disableClient = async (id) => {
     const Client = await Clientes.update(
         { deleted: true },
-        { where: { id: id } }
+        { where: { doc_Identidad: id } }
       );
       
       if (Client[0] === 0) {
@@ -59,7 +62,7 @@ const disableClient = async (id) => {
       return { data: Client[1], msg: "Cliente desactivado exitosamente" };
     };
 //ACTUALIZA CLIENTE
-const putClient =  async(nombre, apellidos, email, tipo_Documento, doc_Identidad, fechaNacimiento, pais, ciudad, nroCelular, direccion, id)=>{
+const putClient =  async(nombre, apellidos, email, tipo_Documento, fechaNacimiento, pais, ciudad, nroCelular, direccion, deleted, id)=>{
 
     const cliente = await Clientes.findByPk(id);
 
@@ -80,9 +83,6 @@ const putClient =  async(nombre, apellidos, email, tipo_Documento, doc_Identidad
       if (tipo_Documento) {
         cliente.tipo_Documento = tipo_Documento;
       }
-      if (doc_Identidad) {
-        cliente.doc_Identidad = doc_Identidad;
-      }
       if (fechaNacimiento) {
         cliente.fechaNacimiento = fechaNacimiento;
       }
@@ -98,7 +98,11 @@ const putClient =  async(nombre, apellidos, email, tipo_Documento, doc_Identidad
       if (direccion) {
         cliente.direccion = direccion;
       }
-   
+      if (deleted === true) {
+        cliente.deleted= true;
+      } else {
+        cliente.deleted = false;
+      }
     await cliente.save();
 
     return { data: cliente, msg: "Cliente actualizado exitosamente" };

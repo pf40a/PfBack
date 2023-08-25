@@ -32,7 +32,6 @@ const postReviewHandler = async(req, res) =>{
 //return res.status(200).send("Crear un User")
   try {
     const { UsuarioId, rating, comentario } = req.body;
-    //return res.status(200).json(req.body);
     const resultado = await postReview(UsuarioId, rating, comentario);
 
     if (resultado.error) return res.status(400).json(resultado);
@@ -75,8 +74,8 @@ const disableReviewHandler = async(req, res) =>{
 const putReviewHandler = async(req, res) =>{
   try {
     const { id } = req.params
-    const { rating, comentario } = req.body;
-    const resultado = await putReview(id, rating, comentario);
+    const { rating, comentario, deleted} = req.body;
+    const resultado = await putReview(id, rating, comentario, deleted);
     
     if (resultado.error) return res.status(400).json(resultado);
     return res.status(200).json(resultado);
