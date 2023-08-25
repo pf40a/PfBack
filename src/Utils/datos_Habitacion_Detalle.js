@@ -2,6 +2,7 @@ const datos_Habitacion_Detalle = [
   
   // ------- INDIVIDUAL -------
 
+  
   {
     precio: 100,
     tipo_Habitacion: "Individual",
