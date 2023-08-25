@@ -1,4 +1,5 @@
-const {Clientes} = require("../Models/Relations")
+const { Clientes } = require("../Models/Relations")
+
 // GET ALL CLIENTES
 const getClientes = async () => {
     const findClientes = await Clientes.findAll()

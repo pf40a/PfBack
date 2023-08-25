@@ -9,11 +9,11 @@ const Reservas = sequelize.define(
       primaryKey: true,
       defaultValue: UUIDV4,
     },
-    /* usuarioId: {
+    /* UsuarioId: {
       type: DataTypes.STRING,
       allowNull: false,
     }, */
-    /* clienteId: {
+    /* ClienteId: {
       type: DataTypes.STRING,
       allowNull: false,
     }, */

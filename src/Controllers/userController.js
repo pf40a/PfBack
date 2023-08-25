@@ -1,10 +1,11 @@
 
+const Reviews = require("../Models/Reviews");
 const Usuarios = require("../Models/Usuarios");
 
 // GET ALL USUARIOS
 const getUsuarios = async () => {
   const findUsuarios = await Usuarios.findAll()
-  if (!findUsuarios) return { error: "No hay Usuarios" };
+  if (!findUsuarios || !findUsuarios.length) return { error: "No hay Usuarios" };
   return { data: findUsuarios };
 };
 
@@ -52,13 +53,21 @@ const postUser = async (nombre, apellido, email, password, admin) => {
 
 // ELIMINA FISICAMENTE UN USUARIO
 const deleteUser = async (id) => {
+  const user = await Usuarios.findByPk(id)
+  if (!user) return { error: "Usuario no existe" };
+  
   const userEliminado = await Usuarios.destroy({
     where: {
     id: id,
     },
   });
-  if(!userEliminado) return {error: "Usuario no existe"}
-  return {data: userEliminado, msg: "Usuario Eliminado"}
+  if (!userEliminado) return { error: "Usuario no existe" }
+  await Reviews.destroy({
+    where: {
+      UsuarioId: null, 
+    },
+  });
+  return {data: user, msg: "Usuario Eliminado"}
 };
 
 //ELIMIN LOGICAMENTE UN USUARIO

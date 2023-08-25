@@ -1,4 +1,5 @@
-const {getClientes, getClienteById, postCliente, deleteCliente, disableClient, putClient} = require("../Controllers/clientesController") 
+const { getClientes, getClienteById, postCliente, deleteCliente, disableClient, putClient } = require("../Controllers/clientesController") 
+
 // Ruta para traer a todos los Cliente
 const getClientesHandler = async (req, res) => {
     try {
