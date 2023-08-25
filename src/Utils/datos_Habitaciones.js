@@ -1,4 +1,7 @@
 const datos_habitaciones= [
+
+  // Habitaciones Individuales
+
   {
     HabitacionDetalleId:1,
     nroHabitacion: 101,
@@ -89,6 +92,9 @@ const datos_habitaciones= [
     nivel: "piso 2",
     estado:"activo",
   },
+
+  // Habitaciones Dobles
+
   {
     HabitacionDetalleId:4,
     nroHabitacion: 206,
@@ -179,6 +185,9 @@ const datos_habitaciones= [
     nivel: "piso 3",
     estado:"activo",
   },
+
+  // Habitaciones Familiares
+
   {
     HabitacionDetalleId:7,
     nroHabitacion: 401,
@@ -222,6 +231,12 @@ const datos_habitaciones= [
     estado:"activo",
   },
   {
+    HabitacionDetalleId:8,
+    nroHabitacion: 407,
+    nivel: "piso 4",
+    estado:"activo",
+  },
+  {
     HabitacionDetalleId:9,
     nroHabitacion: 408,
     nivel: "piso 4",
@@ -239,6 +254,15 @@ const datos_habitaciones= [
     nivel: "piso 4",
     estado:"activo",
   },
+  {
+    HabitacionDetalleId:9,
+    nroHabitacion: 410,
+    nivel: "piso 4",
+    estado:"activo",
+  },
+
+  // Habitaciones Ejecutivas
+
   {
     HabitacionDetalleId:10,
     nroHabitacion: 501,
@@ -287,6 +311,9 @@ const datos_habitaciones= [
     nivel: "piso 5",
     estado:"activo",
   },
+
+  // Habitaciones Matrimoniales
+  
   {
     HabitacionDetalleId:13,
     nroHabitacion: 509,
@@ -323,6 +350,9 @@ const datos_habitaciones= [
     nivel: "piso 6",
     estado:"activo",
   },
+
+  // Habitaciones VIP
+  
   {
     HabitacionDetalleId:16,
     nroHabitacion: 605,

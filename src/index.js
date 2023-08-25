@@ -5,10 +5,10 @@ const morgan = require("morgan");
 const cors = require("cors");
 const sequelize = require("./db");
 const router = require("./Router/mainRouter");
-const port = 3001
+const port = 3001;
 const app = express();
 
-const { Usuarios, Reviews, Reservas } = require("./Models/Relations")
+const { Usuarios, Reviews, Reservas } = require("./Models/Relations");
 
 // MIDDLEWARES
 app.use(express.json());

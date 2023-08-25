@@ -15,34 +15,42 @@ const Habitacion_Detalles = sequelize.define(
       type: DataTypes.DOUBLE,
       allowNull: false,
     },
+
     tipo_Habitacion: {
       type: DataTypes.STRING,
       allowNull: false,
       defaultValue: false,
     },
+
     subTipo: {
       type: DataTypes.STRING,
       allowNull: false,
       defaultValue: false,
     },
+
     descripcion: {
       type: DataTypes.STRING,
       allowNull: false,
       defaultValue: false,
     },
+
     caracteristica: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+
     capacidad: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+
     image: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+
   },
+  
   {
     timestamps: false,
   }
