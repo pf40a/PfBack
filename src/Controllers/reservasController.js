@@ -5,7 +5,7 @@ const Reservas = require("../Models/Reservas")
 // GET ALL RESERVAS
 const getReservas = async () => {
     const findReservas = await Reservas.findAll()
-    if (!findReservas) return { error: "No hay reservas"}
+    if (findReservas == 0) return { error: "No hay reservas"}
     return { data: findReservas}
 }
 
