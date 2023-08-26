@@ -22,13 +22,13 @@ const getReserva_ItemsById = async (id) => {
 
 //DELETE RESERVA ITEM
 const deleteReserva_Items = async (id) => {
-    const reservaItemEliminado = Reserva_Items.destroy({
+    const reservaItemEliminado = await Reserva_Items.destroy({
         where: {
             id: id,
         },
     })
 
-    if(!reservaItemEliminado) return { error: "Reserva Item no existe"}
+    if(reservaItemEliminado === 0) return { error: "Reserva Item no existe"}
     return { data: reservaItemEliminado, msg: "Reserva Item eliminado"}
 }
 
@@ -48,15 +48,18 @@ const disableReserva_Items = async (id) => {
 //CREAR UNA RESERVA ITEM
 const postReserva_Items = async ( precio, HabitacionId, ReservaId ) => {
     const nuevoReservaItem = await Reserva_Items.create({
-        precio
+        precio,
+        ReservaId,
+        HabitacionId
     })
-    //console.log(nuevoReservaItem)
+    
 
-    const reserva = await Reservas.findByPk(ReservaId)
-    const habitacion = await Habitaciones.findByPk(HabitacionId)
+    // const reserva = await Reservas.findByPk(ReservaId)
+    // const habitacion = await Habitaciones.findByPk(HabitacionId)
 
-    await nuevoReservaItem.addReservas(reserva)
-    await nuevoReservaItem.addHabitacion(habitacion)
+    // await nuevoReservaItem.addReservas(reserva)
+    // await nuevoReservaItem.addHabitacion(habitacion)
+    return { data: nuevoReservaItem, msg: "Reserva Item creada"}
 }
 
 // MODIFICAR RESERVA ITEM
