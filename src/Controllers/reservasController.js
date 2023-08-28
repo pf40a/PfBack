@@ -51,7 +51,7 @@ const disableReservas = async (id) => {
 }
 
 //POST - CREA UNA NUEVA RESERVA
-const postReservas = async ( fechaIngreso, fechaSalida, adultos, ninos, pago_Estado, UsuarioId, ClienteId ) => {
+const postReservas = async ( fechaIngreso, fechaSalida, adultos, ninos, pago_Estado, UsuarioId, ClienteDocIdentidad  ) => {
     //HACER UN VALIDAR DE LAS FECHAS
 
     const nuevaReserva = await Reservas.create({
@@ -61,7 +61,7 @@ const postReservas = async ( fechaIngreso, fechaSalida, adultos, ninos, pago_Est
         ninos, 
         pago_Estado,
         UsuarioId,
-        ClienteId 
+        ClienteDocIdentidad 
     });
 
     //await nuevaReserva.setUsuarios(UsuarioId)
