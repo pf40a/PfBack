@@ -23,6 +23,7 @@ habitacionesRouter.put("/:id", putHabitacionesHandler);
 habitacionesRouter.post("/", postHabitacionesHandler);
 
 //para cargar datos a la BD
+//http://localhost:3001/hotel/habitaciones/alldatos
 habitacionesRouter.post("/alldatos", postAllHabitaciones);
 
 module.exports = habitacionesRouter;
