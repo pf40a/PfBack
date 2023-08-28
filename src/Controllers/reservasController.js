@@ -1,17 +1,28 @@
 const Reservas = require("../Models/Reservas")
+const Clientes  = require("../Models/Clientes")
 //const Usuarios = require("../Models/Usuarios")
 //const { Op } = require("sequelize")
 
 // GET ALL RESERVAS
 const getReservas = async () => {
-    const findReservas = await Reservas.findAll()
+    const findReservas = await Reservas.findAll({
+        include: [{
+            model: Clientes,
+            attributes: ['doc_Identidad', 'nombre', 'apellidos', 'email'] 
+        }]
+    })
     if (findReservas == 0) return { error: "No hay reservas"}
     return { data: findReservas}
 }
 
 //GET RESERVA BY ID
 const getReservasById = async (id) => {
-    const findReserva = await Reservas.findByPk(id)
+    const findReserva = await Reservas.findByPk(id, {
+        include: {
+            model: Clientes,
+            attributes: ['doc_Identidad', 'nombre', 'apellidos', 'email']
+        }
+    })
 
     if (!findReserva) return { error: "Reserva no existe"};
     return { data: findReserva};
