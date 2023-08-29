@@ -15,8 +15,8 @@ const habitacion_DetallesRouter = Router();
 
 habitacion_DetallesRouter.get("/", getHabitacionDetallesHandler);
 habitacion_DetallesRouter.get("/:id", getHabitacionDetallesByIdHandler);
-habitacion_DetallesRouter.delete("/:id", deleteHabitacionDetallesHandler);
-habitacion_DetallesRouter.put("/:id", putHabitacionDetallesHandler);
-habitacion_DetallesRouter.post("/", postHabitacionDetallesHandler);
+habitacion_DetallesRouter.delete("/delete/:id", deleteHabitacionDetallesHandler);
+habitacion_DetallesRouter.put("/put/:id", putHabitacionDetallesHandler);
+habitacion_DetallesRouter.post("/post", postHabitacionDetallesHandler);
 
 module.exports = habitacion_DetallesRouter;
