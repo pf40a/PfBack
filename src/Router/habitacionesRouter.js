@@ -22,7 +22,9 @@ habitacionesRouter.delete("/delete/:id", deleteHabitacionesHandler);
 habitacionesRouter.put("/put/:id", putHabitacionesHandler);
 habitacionesRouter.post("/post", postHabitacionesHandler);
 
+
 //para cargar datos a la BD
+//http://localhost:3001/hotel/habitaciones/alldatos
 habitacionesRouter.post("/alldatos", postAllHabitaciones);
 
 module.exports = habitacionesRouter;

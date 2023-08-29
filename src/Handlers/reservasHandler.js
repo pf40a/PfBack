@@ -58,8 +58,8 @@ const disableReservasHandler = async (req,res) => {
 //Ruta para crear una nueva Reserva
 const postReservasHandler = async (req,res) => {
     try {
-        const { fechaIngreso, fechaSalida, adultos, ninos, pago_Estado, UsuarioId, ClienteId } = req.body
-        const resultado = await postReservas( fechaIngreso, fechaSalida, adultos, ninos, pago_Estado, UsuarioId, ClienteId )
+        const { fechaIngreso, fechaSalida, adultos, ninos, pago_Estado, UsuarioId, ClienteDocIdentidad  } = req.body
+        const resultado = await postReservas( fechaIngreso, fechaSalida, adultos, ninos, pago_Estado, UsuarioId, ClienteDocIdentidad  )
 
         if(resultado.error) return res.status(400).json(resultado)
         return res.status(200).json(resultado)

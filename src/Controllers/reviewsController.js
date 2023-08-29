@@ -16,7 +16,8 @@ const getReviews = async () => {
       },
     ],
   });
-  if (!findReviews || !findReviews.length) return { error: "No hay Reviews" };
+  if (!findReviews || !findReviews.length)
+    return { error: "No hay Reviews" };
   return { data: findReviews };
 };
 
@@ -27,7 +28,9 @@ const getReviewsByUser = async (id) => {
     UsuarioId: id,
     },
   });
-  if (!findReviews) return { error: "Reviews no existe con el Usuario: " + id };
+  if (!findReviews)
+    
+    return { error: "Reviews no existe con el Usuario: " + id };
   
   return { data: findReviews };
 };

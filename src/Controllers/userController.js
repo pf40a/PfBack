@@ -1,6 +1,7 @@
 
 const Reviews = require("../Models/Reviews");
 const Usuarios = require("../Models/Usuarios");
+const bcrypt = require("bcrypt");
 
 // GET ALL USUARIOS
 const getUsuarios = async () => {
@@ -16,10 +17,17 @@ const getUserLogin = async (email, password) => {
     where: { email: email, deleted: false },
   });
   if (!findUserByEmail) return { error: "Email incorrecto" };
-
-  if (findUserByEmail?.password === password)
-  return { data: findUserByEmail, msg: "Usuario logeado" };
-  return { error: "Password Incorrecto" };
+  const passwordMatch = await bcrypt.compare(
+     password,
+     findUserByEmail.password
+  );
+  
+  if (passwordMatch) {
+    return { data: findUserByEmail, msg: "Usuario logeado" };
+  } else {
+    return { error: "Password incorrecto" };
+  }
+  
 }
 
 //GET USUARIO BY ID
@@ -37,14 +45,15 @@ const getUserById = async (id) => {
 //POST - CREA UN NUEVO USUARIO
 const postUser = async (nombre, apellido, email, password, admin) => {
   const validateEmail = await Usuarios.findAndCountAll({ where: { email } });
-  ;
   if (validateEmail.count > 0) return { error: "Email Repetido" };
+  // Genera el hash de la contraseña
+  const hashedPassword = await bcrypt.hash(password, 10);
 
   const nuevoUser = await Usuarios.create({
     nombre,
     apellido,
     email,
-    password,
+    password: hashedPassword,
     admin,
   });
 
