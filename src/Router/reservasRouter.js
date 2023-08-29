@@ -11,5 +11,6 @@ reservasRouter.delete("/:id", deleteReservasHandler);
 reservasRouter.delete("/disable/:id", disableReservasHandler);
 reservasRouter.post("/", postReservasHandler);
 reservasRouter.put("/:id", putReservasHandler);
-
+//FILTRO
+//reservasRouter.get("/filtro", getReservasHandler);
 module.exports = reservasRouter;

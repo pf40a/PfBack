@@ -4,8 +4,9 @@ const clientesRouter = require("./clientesRouter");
 const habitacion_DetallesRouter = require("./habitacion_DetallesRouter");
 const habitacionesRouter = require("./habitacionesRouter");
 const reservasRouter = require("./reservasRouter");
-const reserva_ItemsRouter = require("./reservas_ItemsRouter");
 const reviewsRouter = require("./reviewsRouter");
+const reserva_ItemsRouter = require("./reservas_ItemsRouter");
+const subTipoRouter = require("./subTipoRouter");
 
 const router = Router();
 
@@ -16,5 +17,7 @@ router.use("/habitaciones", habitacionesRouter);
 router.use("/reservas", reservasRouter);
 router.use("/reservas/items", reserva_ItemsRouter)
 router.use("/reviews", reviewsRouter)
+
+router.use("/subtipo", subTipoRouter)
 
 module.exports = router;
