@@ -18,9 +18,9 @@ const habitacionesRouter = Router();
 
 habitacionesRouter.get("/", getHabitacionesHandler);
 habitacionesRouter.get("/:id", getHabitacionesByIdHandler);
-habitacionesRouter.delete("/:id", deleteHabitacionesHandler);
-habitacionesRouter.put("/:id", putHabitacionesHandler);
-habitacionesRouter.post("/", postHabitacionesHandler);
+habitacionesRouter.delete("/delete/:id", deleteHabitacionesHandler);
+habitacionesRouter.put("/put/:id", putHabitacionesHandler);
+habitacionesRouter.post("/post", postHabitacionesHandler);
 
 
 //para cargar datos a la BD
