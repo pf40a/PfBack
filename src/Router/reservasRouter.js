@@ -1,5 +1,6 @@
 const { Router } = require("express");
-const { getReservasHandler, getReservasByIdHandler, deleteReservasHandler, disableReservasHandler, postReservasHandler, putReservasHandler } = require("../Handlers/reservasHandler")
+const { getReservasHandler, getReservasByIdHandler, deleteReservasHandler, disableReservasHandler, postReservasHandler, putReservasHandler } = require("../Handlers/reservasHandler");
+const getReserva_FiltrosHandler = require("../Handlers/reservas_FiltrosHandler");
 
 const reservasRouter = Router();
 
@@ -11,6 +12,5 @@ reservasRouter.delete("/:id", deleteReservasHandler);
 reservasRouter.delete("/disable/:id", disableReservasHandler);
 reservasRouter.post("/", postReservasHandler);
 reservasRouter.put("/:id", putReservasHandler);
-//FILTRO
-//reservasRouter.get("/filtro", getReservasHandler);
+
 module.exports = reservasRouter;

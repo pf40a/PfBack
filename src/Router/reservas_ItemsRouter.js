@@ -8,7 +8,7 @@ const reserva_ItemsRouter = Router();
 
 
 
-reserva_ItemsRouter.get("/get", getReserva_ItemsHandler);
+reserva_ItemsRouter.get("/", getReserva_ItemsHandler);
 reserva_ItemsRouter.get("/:id", getReserva_ItemsByIdHandler);
 reserva_ItemsRouter.delete("/:id", deleteReserva_ItemsHandler);
 reserva_ItemsRouter.delete("/disable/:id", disableReserva_ItemsHandler);

@@ -7,6 +7,7 @@ const reservasRouter = require("./reservasRouter");
 const reviewsRouter = require("./reviewsRouter");
 const reserva_ItemsRouter = require("./reservas_ItemsRouter");
 const subTipoRouter = require("./subTipoRouter");
+const filtrosRouter = require("./reservas_FiltrosRouter");
 
 const router = Router();
 
@@ -15,9 +16,10 @@ router.use("/clientes", clientesRouter);  // http://localhost:3001/hotel/cliente
 router.use("/habitaciones/detalle", habitacion_DetallesRouter);
 router.use("/habitaciones", habitacionesRouter);
 router.use("/reservas", reservasRouter);
-router.use("/reservas/items", reserva_ItemsRouter)
+router.use("/reservasItems", reserva_ItemsRouter)
 router.use("/reviews", reviewsRouter)
 
+router.use("/filtros", filtrosRouter);
 router.use("/subtipo", subTipoRouter)
 
 module.exports = router;
