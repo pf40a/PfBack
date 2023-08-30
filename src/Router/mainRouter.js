@@ -14,7 +14,7 @@ router.use("/clientes", clientesRouter);  // http://localhost:3001/hotel/cliente
 router.use("/habitaciones/detalle", habitacion_DetallesRouter);
 router.use("/habitaciones", habitacionesRouter);
 router.use("/reservas", reservasRouter);
-router.use("/reservas/items", reserva_ItemsRouter)
+router.use("/reservasItems", reserva_ItemsRouter)
 router.use("/reviews", reviewsRouter)
 
 module.exports = router;
