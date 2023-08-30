@@ -45,7 +45,8 @@ const deleteRooms = async (id) => {
     if (deleteRoom === 0) {
       return { error: "Habitación no encontrada" };
     }
-    // ELIMINA las habitaciones de este Detalle
+
+    // Eliminar las habitaciones de este Detalle
     await Habitaciones.destroy({
       where: {
         HabitacionDetalleId: null,

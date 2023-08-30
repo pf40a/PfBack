@@ -2,6 +2,8 @@
 const Habitaciones = require("../Models/Habitaciones.js");
 const Habitacion_Detalles = require("../Models/Habitacion_Detalles.js");
 
+
+
 // Función para obtener todas las Habitaciones
 const getRooms = async () => {
   try {
@@ -134,10 +136,12 @@ const postRooms = async (HabitacionDetalleId, nroHabitacion, nivel, estado) => {
   }
 };
 
+
+
 module.exports = {
   getRooms,
   getRoomsId,
   putRooms,
   deleteRooms,
-  postRooms,
+  postRooms
 };

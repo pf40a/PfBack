@@ -4,6 +4,7 @@ const Habitaciones = require("./Habitaciones");
 const Reserva_Items = require("./Reserva_Items");
 const Reservas = require("./Reservas");
 const Reviews = require("./Reviews");
+const SubTipo_Habitaciones = require("./SubTipo_Habitaciones");
 const Usuarios = require("./Usuarios");
 
 // REVIEWS RELATIONS
@@ -20,6 +21,7 @@ Reserva_Items.belongsTo(Habitaciones, {
   //foreignKey: "HabitacioneId",
   as: "Habitacion",
 });
+
 //HABITACIONES RELATIONS
 Habitaciones.belongsTo(Habitacion_Detalle);
 
@@ -31,4 +33,5 @@ module.exports = {
   Clientes,
   Habitaciones,
   Habitacion_Detalle,
+  SubTipo_Habitaciones,
 };

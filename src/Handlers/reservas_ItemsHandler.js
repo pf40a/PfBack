@@ -1,7 +1,11 @@
-const { getReserva_Items, getReserva_ItemsById, deleteReserva_Items, disableReserva_Items, postReserva_Items, putReserva_Items} = require("../Controllers/reservas_ItemsController")
+
+
+const { getReserva_Items, getReserva_ItemsById, deleteReserva_Items, disableReserva_Items, postReserva_Items, putReserva_Items } = require("../Controllers/reservas_ItemsController");
 
 // Ruta para traer las Reservas Items
 const getReserva_ItemsHandler = async (req, res) => {
+  //return res.status(200).send("get Reserva Items");
+  
     try {
         const resultado = await getReserva_Items()
         if (resultado.error) return res.statust(400).json(resultado)
@@ -14,6 +18,7 @@ const getReserva_ItemsHandler = async (req, res) => {
 
 //Ruta para buscar Reserva Item por id
 const getReserva_ItemsByIdHandler = async (req, res) => {
+  // return res.status(200).send("get Reserva Items By ID");
     try {
         const { id } = req.params
         const resultado = await getReserva_ItemsById(id)
