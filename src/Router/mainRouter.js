@@ -8,6 +8,7 @@ const reviewsRouter = require("./reviewsRouter");
 const reserva_ItemsRouter = require("./reservas_ItemsRouter");
 const subTipoRouter = require("./subTipoRouter");
 const filtrosRouter = require("./reservas_FiltrosRouter");
+const emailRouter = require("./emailRouter");
 
 const router = Router();
 
@@ -21,5 +22,7 @@ router.use("/reviews", reviewsRouter)
 
 router.use("/filtros", filtrosRouter);
 router.use("/subtipo", subTipoRouter)
+
+router.use("/email", emailRouter)
 
 module.exports = router;
