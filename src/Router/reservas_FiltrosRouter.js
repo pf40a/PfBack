@@ -7,6 +7,6 @@ const filtrosRouter = Router();
 // http://localhost:3001/hotel/filtros
 
 //Filtro de los tipos de habitaciones disponibles 
-filtrosRouter.get("/", getReserva_FiltrosHandler);
+filtrosRouter.post("/", getReserva_FiltrosHandler);
 
 module.exports = filtrosRouter;

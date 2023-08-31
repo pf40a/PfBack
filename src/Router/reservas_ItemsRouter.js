@@ -3,7 +3,7 @@ const { getReserva_ItemsHandler, getReserva_ItemsByIdHandler, deleteReserva_Item
 
 const reserva_ItemsRouter = Router();
 
-// http://localhost:3001/hotel/reservas/items
+// http://localhost:3001/hotel/reservasItems
 
 
 

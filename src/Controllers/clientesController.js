@@ -1,4 +1,5 @@
 const { Clientes } = require("../Models/Relations")
+const moment = require("moment");
 
 // GET ALL CLIENTES
 const getClientes = async () => {
@@ -19,7 +20,8 @@ const getClientes = async () => {
   };
   //POST - CREA UN NUEVO CLIENTE
 const postCliente = async (nombre, apellidos, email, tipo_Documento, doc_Identidad, fechaNacimiento, pais, ciudad, nroCelular, direccion) => {
-  
+  //Cambia el formato "dd-mm-aaaa"
+   fechaNacimiento = moment(fechaNacimiento, "DD-MM-YYYY").format("YYYY-MM-DD");
   const client = await Clientes.findOrCreate({
     where: { doc_Identidad },
     defaults: {
@@ -83,7 +85,10 @@ const putClient =  async(nombre, apellidos, email, tipo_Documento, fechaNacimien
       if (tipo_Documento) {
         cliente.tipo_Documento = tipo_Documento;
       }
-      if (fechaNacimiento) {
+  if (fechaNacimiento) {
+         fechaNacimiento = moment(fechaNacimiento, "DD-MM-YYYY").format(
+           "YYYY-MM-DD"
+         );
         cliente.fechaNacimiento = fechaNacimiento;
       }
       if (pais) {

@@ -17,6 +17,7 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
       {
         model: Habitacion_Detalles, //Habitacion_Detalle
         attributes: [
+          "id",
           "precio",
           "tipo_Habitacion",
           "subTipo",
@@ -28,7 +29,7 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
       },
     ],
   });
-
+  //return {data: listaHabitaciones}
   const listaHabitacionesReservadas = await Reserva_Items.findAll({
     include: [
       {
@@ -47,6 +48,7 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
   const habitacionesAgrupadas = {};
   listaHabitaciones.forEach((habitacion) => {
     const {
+      id,
       tipo_Habitacion,
       subTipo,
       descripcion,
@@ -71,7 +73,7 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
           return (
             reserva.Habitacion.nroHabitacion === habitacion.nroHabitacion &&
             ((reserva.Reserva.fechaIngreso <= fechaFin &&
-              (reserva.Reserva.fechaSalida > fechaInicio ||
+              (reserva.Reserva.fechaSalida >= fechaInicio ||
                 reserva.Reserva.fechaSalida === null)) ||
               (reserva.Reserva.fechaSalida === null &&
                 reserva.Reserva.fechaIngreso <= fechaFin))
@@ -84,6 +86,7 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
     if (habitacionesDisponiblesGrupo.length > 0) {
       const habitacion = habitacionesDisponiblesGrupo[0]; // Tomamos una habitación de ejemplo para obtener datos comunes
       habitacionesDisponibles.push({
+        id: habitacion.Habitacion_Detalle.id,
         tipo_Habitacion: habitacion.Habitacion_Detalle.tipo_Habitacion,
         subTipo: habitacion.Habitacion_Detalle.subTipo,
         descripcion: habitacion.Habitacion_Detalle.descripcion,
@@ -93,6 +96,7 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
         image: habitacion.Habitacion_Detalle.image,
         habitaciones: habitacionesDisponiblesGrupo.map((el) => {
           return {
+            id: el.id,
             nroHabitacion: el.nroHabitacion,
             estado: el.estado,
             nivel: el.nivel,
