@@ -20,7 +20,7 @@ app.use("/hotel", router);
 
 // SEQUELIZE - alter:true // force:false
 sequelize
-  .sync({ alter: true })
+  .sync({ force: true })
   .then(() => {
     app.listen(port, () => {
       console.log("Server on PORT :" + port);

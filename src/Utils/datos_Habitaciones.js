@@ -232,12 +232,6 @@ const datos_habitaciones= [
   },
   {
     HabitacionDetalleId:8,
-    nroHabitacion: 407,
-    nivel: "piso 4",
-    estado:"activo",
-  },
-  {
-    HabitacionDetalleId:9,
     nroHabitacion: 408,
     nivel: "piso 4",
     estado:"activo",
@@ -254,14 +248,20 @@ const datos_habitaciones= [
     nivel: "piso 4",
     estado:"activo",
   },
-  {
+   {
     HabitacionDetalleId:9,
-    nroHabitacion: 410,
+    nroHabitacion: 411,
     nivel: "piso 4",
     estado:"activo",
   },
+  {
+    HabitacionDetalleId:9,
+    nroHabitacion: 412,
+    nivel: "piso 4",
+    estado:"activo",
+  }, 
 
-  // Habitaciones Ejecutivas
+  // Habitaciones Matrimonial
 
   {
     HabitacionDetalleId:10,
@@ -276,7 +276,7 @@ const datos_habitaciones= [
     estado:"activo",
   },
   {
-    HabitacionDetalleId:10,
+    HabitacionDetalleId:11,
     nroHabitacion: 503,
     nivel: "piso 5",
     estado:"activo",
@@ -288,31 +288,30 @@ const datos_habitaciones= [
     estado:"activo",
   },
   {
-    HabitacionDetalleId:11,
+    HabitacionDetalleId:12,
     nroHabitacion: 505,
     nivel: "piso 5",
     estado:"activo",
   },
   {
-    HabitacionDetalleId:11,
+    HabitacionDetalleId:12,
     nroHabitacion: 506,
     nivel: "piso 5",
     estado:"activo",
   },
+  // habitaciones Ejecutivas
   {
-    HabitacionDetalleId:12,
+    HabitacionDetalleId:13,
     nroHabitacion: 507,
     nivel: "piso 5",
     estado:"activo",
   },
   {
-    HabitacionDetalleId:12,
+    HabitacionDetalleId:13,
     nroHabitacion: 508,
     nivel: "piso 5",
     estado:"activo",
   },
-
-  // Habitaciones Matrimoniales
   
   {
     HabitacionDetalleId:13,
@@ -321,7 +320,7 @@ const datos_habitaciones= [
     estado:"activo",
   },
   {
-    HabitacionDetalleId:13,
+    HabitacionDetalleId:14,
     nroHabitacion: 510,
     nivel: "piso 5",
     estado:"activo",

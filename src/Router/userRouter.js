@@ -6,7 +6,7 @@ const userRouter = Router();
 // http://localhost:3001/hotel/users
 
 userRouter.get("/", getUsuariosHandler) 
-userRouter.get("/login", getUserLoginHandler);
+userRouter.post("/login", getUserLoginHandler);
 userRouter.get("/:id", getUserByIdHandler );
 userRouter.delete("/:id", deleteUserHandler); 
 userRouter.delete("/disable/:id", disableUserHandler); 

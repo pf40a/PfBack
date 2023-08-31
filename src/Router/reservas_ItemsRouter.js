@@ -3,12 +3,12 @@ const { getReserva_ItemsHandler, getReserva_ItemsByIdHandler, deleteReserva_Item
 
 const reserva_ItemsRouter = Router();
 
-// http://localhost:3001/hotel/reservas/items
+// http://localhost:3001/hotel/reservasItems
 
 
 
 
-reserva_ItemsRouter.get("/get", getReserva_ItemsHandler);
+reserva_ItemsRouter.get("/", getReserva_ItemsHandler);
 reserva_ItemsRouter.get("/:id", getReserva_ItemsByIdHandler);
 reserva_ItemsRouter.delete("/:id", deleteReserva_ItemsHandler);
 reserva_ItemsRouter.delete("/disable/:id", disableReserva_ItemsHandler);

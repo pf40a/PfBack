@@ -4,11 +4,11 @@ const { getReserva_Items, getReserva_ItemsById, deleteReserva_Items, disableRese
 
 // Ruta para traer las Reservas Items
 const getReserva_ItemsHandler = async (req, res) => {
-  return res.status(200).send("get Reserva Items");
+ // return res.status(200).send("get Reserva Items");
   
     try {
         const resultado = await getReserva_Items()
-        if (resultado.error) return res.statust(400).json(resultado)
+        if (resultado.error) return res.status(400).json(resultado)
         return res.status(200).json(resultado)
 
     } catch (error) {
