@@ -2,7 +2,7 @@ const Reservas = require("../Models/Reservas")
 const Clientes  = require("../Models/Clientes")
 //const Usuarios = require("../Models/Usuarios")
 //const { Op } = require("sequelize")
-//const moment = require("moment");
+const moment = require("moment");
 
 // GET ALL RESERVAS
 const getReservas = async () => {
@@ -56,10 +56,9 @@ const postReservas = async (fechaIngreso, fechaSalida, adultos, ninos, pago_Esta
   
   //CAMBIAR EL FORMATO
   //"dd-mm-aaaa"
-  // fechaIngreso = moment(fechaIngreso, "DD-MM-YYYY").format("YYYY-MM-DD");
-  // fechaSalida = moment(fechaSalida, "DD-MM-YYYY").format("YYYY-MM-DD");
+   fechaIngreso = moment(fechaIngreso, "DD-MM-YYYY").format("YYYY-MM-DD");
+   fechaSalida = moment(fechaSalida, "DD-MM-YYYY").format("YYYY-MM-DD");
 
-    //HACER UN VALIDAR DE LAS FECHAS
 
     const nuevaReserva = await Reservas.create({
         fechaIngreso, 
@@ -70,8 +69,6 @@ const postReservas = async (fechaIngreso, fechaSalida, adultos, ninos, pago_Esta
         UsuarioId,
         ClienteDocIdentidad 
     });
-
-    //await nuevaReserva.setUsuarios(UsuarioId)
 
     return { data: nuevaReserva, msg: "Reserva creada"};
 }
