@@ -2,6 +2,7 @@ const Reservas = require("../Models/Reservas")
 const Clientes  = require("../Models/Clientes")
 //const Usuarios = require("../Models/Usuarios")
 //const { Op } = require("sequelize")
+//const moment = require("moment");
 
 // GET ALL RESERVAS
 const getReservas = async () => {
@@ -51,7 +52,13 @@ const disableReservas = async (id) => {
 }
 
 //POST - CREA UNA NUEVA RESERVA
-const postReservas = async ( fechaIngreso, fechaSalida, adultos, ninos, pago_Estado, UsuarioId, ClienteDocIdentidad  ) => {
+const postReservas = async (fechaIngreso, fechaSalida, adultos, ninos, pago_Estado, UsuarioId, ClienteDocIdentidad) => {
+  
+  //CAMBIAR EL FORMATO
+  //"dd-mm-aaaa"
+  // fechaIngreso = moment(fechaIngreso, "DD-MM-YYYY").format("YYYY-MM-DD");
+  // fechaSalida = moment(fechaSalida, "DD-MM-YYYY").format("YYYY-MM-DD");
+
     //HACER UN VALIDAR DE LAS FECHAS
 
     const nuevaReserva = await Reservas.create({
@@ -74,8 +81,14 @@ const putReservas = async (id, fechaIngreso, fechaSalida, adultos, ninos) => {
     const findReserva = await Reservas.findByPk(id)
     if (!findReserva) return { error: "Esta Reserva no existe"}
 
-    if(fechaIngreso) findReserva.fechaIngreso = fechaIngreso
-    if(fechaSalida) findReserva.fechaSalida = fechaSalida
+  if (fechaIngreso) {
+    //fechaIngreso = moment(fechaIngreso, "DD-MM-YYYY").format("YYYY-MM-DD");
+    findReserva.fechaIngreso = fechaIngreso;
+  }
+  if (fechaSalida) {
+    //fechaSalida = moment(fechaSalida, "DD-MM-YYYY").format("YYYY-MM-DD")
+    findReserva.fechaSalida = fechaSalida;
+  }
     if(adultos) findReserva.adultos = adultos
     if(ninos) findReserva.ninos = ninos
 
