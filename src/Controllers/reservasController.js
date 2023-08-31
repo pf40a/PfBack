@@ -57,7 +57,7 @@ const postReservas = async (fechaIngreso, fechaSalida, adultos, ninos, pago_Esta
   //CAMBIAR EL FORMATO
   //"dd-mm-aaaa"
    fechaIngreso = moment(fechaIngreso, "DD-MM-YYYY").format("YYYY-MM-DD");
-  fechaSalida = moment(fechaSalida, "DD-MM-YYYY").format("YYYY-MM-DD");
+   fechaSalida = moment(fechaSalida, "DD-MM-YYYY").format("YYYY-MM-DD");
 
 
     const nuevaReserva = await Reservas.create({
@@ -88,6 +88,9 @@ const putReservas = async (id, fechaIngreso, fechaSalida, adultos, ninos) => {
   }
     if(adultos) findReserva.adultos = adultos
     if(ninos) findReserva.ninos = ninos
+
+    //
+    //
 
     await findReserva.save()
 
