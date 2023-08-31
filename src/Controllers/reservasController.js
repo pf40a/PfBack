@@ -54,11 +54,11 @@ const disableReservas = async (id) => {
 //POST - CREA UNA NUEVA RESERVA
 const postReservas = async (fechaIngreso, fechaSalida, adultos, ninos, pago_Estado, UsuarioId, ClienteDocIdentidad) => {
   
-  //CAMBIAR EL FORMATO -  //"dd-mm-aaaa"
-   fechaIngreso = moment(fechaIngreso, "DD-MM-YYYY").format("YYYY-MM-DD");
-   fechaSalida = moment(fechaSalida, "DD-MM-YYYY").format("YYYY-MM-DD");
+  //CAMBIAR EL FORMATO
+  //"dd-mm-aaaa"
+  // fechaIngreso = moment(fechaIngreso, "DD-MM-YYYY").format("YYYY-MM-DD");
+  // fechaSalida = moment(fechaSalida, "DD-MM-YYYY").format("YYYY-MM-DD");
 
-    //HACER UN VALIDAR DE LAS FECHAS
 
     const nuevaReserva = await Reservas.create({
         fechaIngreso, 
@@ -69,8 +69,6 @@ const postReservas = async (fechaIngreso, fechaSalida, adultos, ninos, pago_Esta
         UsuarioId,
         ClienteDocIdentidad 
     });
-
-    //await nuevaReserva.setUsuarios(UsuarioId)
 
     return { data: nuevaReserva, msg: "Reserva creada"};
 }
