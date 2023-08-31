@@ -1,8 +1,6 @@
 const datos_Habitacion_Detalle = [
-  
   // ------- INDIVIDUAL -------
 
-  
   {
     precio: 100,
     tipo_Habitacion: "Individual",
@@ -12,7 +10,7 @@ const datos_Habitacion_Detalle = [
     caracteristica: "Espacio pequeña",
     capacidad: 1,
     image:
-      "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/01+-+Individual+-+Economica.jpg",
+      "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosNuevas/Individual-Economica2.jpg",
   },
 
   {
@@ -24,7 +22,7 @@ const datos_Habitacion_Detalle = [
     caracteristica: "Area de estar pequeña",
     capacidad: 1,
     image:
-      "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/02+-+Individual+-+Confort.jpg",
+      "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosNuevas/Individual-Confort.webp",
   },
 
   {
@@ -50,7 +48,7 @@ const datos_Habitacion_Detalle = [
     caracteristica: "Area de trabajo compartida",
     capacidad: 2,
     image:
-      "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/04+-+Doble-+Economica.jpg",
+      "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosNuevas/Doble-Economica.jpg",
   },
 
   {
@@ -62,7 +60,7 @@ const datos_Habitacion_Detalle = [
     caracteristica: "Sala de estar pequeña, Areas de trabajo separadas",
     capacidad: 2,
     image:
-      "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/05+-+Doble+-+Confort.jpg",
+      "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosNuevas/Doble-Confort.jpeg",
   },
 
   {
@@ -86,9 +84,9 @@ const datos_Habitacion_Detalle = [
     descripcion:
       "La habitación familiar es perfecta para grupos o familias que desean compartir una estancia cómoda y conveniente.",
     caracteristica: "Sin sala de estar",
-    capacidad: 3,
+    capacidad: 4,
     image:
-      "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/07+-+Familiar+-+Economica.jpg",
+      "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosNuevas/familiar+Economica.jpg",
   },
 
   {
@@ -100,7 +98,7 @@ const datos_Habitacion_Detalle = [
     caracteristica: "Sala de estar espaciosa, 2 baños",
     capacidad: 5,
     image:
-      "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/08+-+Familiar+-+Confort.jpg",
+      "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosNuevas/Familiar-Confort.jpg",
   },
 
   {
@@ -110,9 +108,9 @@ const datos_Habitacion_Detalle = [
     descripcion:
       "La habitación familiar es perfecta para grupos o familias que desean compartir una estancia cómoda y conveniente.",
     caracteristica: "Sala de estar espaciosa, 3 hambientes, 3 baños",
-    capacidad: 7,
+    capacidad: 6,
     image:
-      "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/09+-+Familiar+-+Gold.jpg",
+      "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosNuevas/09+-+Familiar+-+Gold2.jpg",
   },
 
   // ------- MATRIMONIAL -------
@@ -126,7 +124,7 @@ const datos_Habitacion_Detalle = [
     caracteristica: "Experiencia romántica, Habitaciones: 1",
     capacidad: 2,
     image:
-      "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/13+-+Matrimonial+-+Economica.jpg",
+      "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosNuevas/Matrimonial-Economica.jpg",
   },
 
   {
@@ -139,7 +137,7 @@ const datos_Habitacion_Detalle = [
       "Experiencia romántica, Sala de estar, Espaciosa, Habitaciones: 1",
     capacidad: 2,
     image:
-      "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/14+-+Matrimonial+-+Confort.jpg",
+      "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosNuevas/Matrimonial-Confort.jpeg",
   },
 
   {

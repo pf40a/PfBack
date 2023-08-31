@@ -5,7 +5,7 @@ const datos_Habitacion_Detalle = require("./datos_Habitacion_Detalle");
 const datos_habitaciones = require("./datos_Habitaciones");
 const datos_SubTipo_Habitaciones = require("./datos_SubTipo_Hatitaciones");
 //const datos_SubTipo_Habitaciones = require("./datos_subTipo_Habitaciones");
-
+//http://localhost:3001/hotel/habitaciones/alldatos
 const postAllHabitaciones = async (req, res) => {
   try {
     // CARGAR DATOS A HABITACION_DETALLES
