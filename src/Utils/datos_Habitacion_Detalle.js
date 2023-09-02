@@ -176,7 +176,7 @@ const datos_Habitacion_Detalle = [
     caracteristica: "Area de trabajo espaciosa",
     capacidad: 5,
     image:
-      "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/11+-+Ejecutiva+-+Confort.jpg",
+      "https://s3-pf40a.s3.sa-east-1.amazonaws.com/Fotos/11+-+Ejecutiva+-+Confort-transformed.jpeg",
   },
 
   {
@@ -217,7 +217,7 @@ const datos_Habitacion_Detalle = [
       "Experiencia VIP, Servicios VIP, Sala de estar, Habitaciones: 3, Suite, Comedor, Cocina privada",
     capacidad: 5,
     image:
-      "https://s3-pf40a.s3.sa-east-1.amazonaws.com/FotosHabitaciones/17+-+Vip-+Confort.jpg",
+      "https://s3-pf40a.s3.sa-east-1.amazonaws.com/Fotos/17+-+Vip+-+Confort-transformed.jpeg",
   },
 
   {
