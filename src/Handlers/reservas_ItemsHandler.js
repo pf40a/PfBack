@@ -62,8 +62,8 @@ const disableReserva_ItemsHandler = async (req, res) => {
 //Ruta para crear una Reserva Item
 const postReserva_ItemsHandler = async (req, res) => {
     try {
-        const { precio, HabitacionId, ReservaId } = req.body
-        const resultado = await postReserva_Items(precio, HabitacionId, ReservaId)
+        const { precio, cantidad, HabitacionId, ReservaId } = req.body
+        const resultado = await postReserva_Items(precio, cantidad, HabitacionId, ReservaId)
 
         if(!resultado.error) return res.status(400).json(resultado)
         return res.status(200).json(resultado)
@@ -77,8 +77,8 @@ const postReserva_ItemsHandler = async (req, res) => {
 const putReserva_ItemsHandler = async (req, res) => {
     try {
         const { id } = req.params
-        const { precio } = req.body //Ver si tambien poder cambiar habitacionId y reservasId
-        const resultado = await putReserva_Items(id, precio)
+        const { precio, cantidad, HabitacionId } = req.body //Ver si tambien poder cambiar habitacionId y reservasId
+        const resultado = await putReserva_Items(id, precio, cantidad, HabitacionId)
 
         if(resultado.error) return res.status(400).json(resultado)
         return res.status(200).json(resultado)
