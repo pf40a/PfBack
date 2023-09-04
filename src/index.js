@@ -7,7 +7,7 @@ const sequelize = require("./db");
 const router = require("./Router/mainRouter");
 const port = 3001;
 const app = express();
-
+ const { PORT} = process.env;
 const { Usuarios, Reviews, Reservas } = require("./Models/Relations");
 
 // MIDDLEWARES
