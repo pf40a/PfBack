@@ -3,9 +3,9 @@ const { createPreference, getFeedBack } = require("../Controllers/mercadoPagoCon
 
 const createPreferenceHandler = async (req, res) => {
     try {
-        const { title, unit_price, quantity } = req.body
+        const { items, reservaId } = req.body
 
-        const resultado = await createPreference(title, unit_price, quantity)
+        const resultado = await createPreference(items, reservaId)
 
         if(resultado.error) return res.status(400).json(resultado)
         return res.status(200).json(resultado)
@@ -18,9 +18,9 @@ const createPreferenceHandler = async (req, res) => {
 const feedBackHandler = async (req, res) => {
     try {
 
-        const { payment_id, status, merchant_order_id } = req.query
+        const { payment_id, status, merchant_order_id, reservaId } = req.query
 
-        const resultado = await getFeedBack(payment_id, status, merchant_order_id)
+        const resultado = await getFeedBack(payment_id, status, merchant_order_id, reservaId)
 
         if(resultado.error) return res.status(400).json(resultado)
         return res.status(200).json(resultado)
