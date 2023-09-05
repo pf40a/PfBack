@@ -71,8 +71,8 @@ const postReservas = async (fechaIngreso, fechaSalida, adultos, ninos, pago_Esta
   
   //CAMBIAR EL FORMATO
   //"dd-mm-aaaa"
-   fechaIngreso = moment(fechaIngreso, "DD-MM-YYYY").format("YYYY-MM-DD");
-  fechaSalida = moment(fechaSalida, "DD-MM-YYYY").format("YYYY-MM-DD");
+  //  fechaIngreso = moment(fechaIngreso, "DD-MM-YYYY").format("YYYY-MM-DD");
+  // fechaSalida = moment(fechaSalida, "DD-MM-YYYY").format("YYYY-MM-DD");
 
 
     const nuevaReserva = await Reservas.create({

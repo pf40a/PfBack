@@ -7,7 +7,7 @@ const reservasRouter = require("./reservasRouter");
 const reviewsRouter = require("./reviewsRouter");
 const reserva_ItemsRouter = require("./reservas_ItemsRouter");
 const subTipoRouter = require("./subTipoRouter");
-const filtrosRouter = require("./reservas_FiltrosRouter");
+const filtrosRouter = require("./FiltrosRouter");
 const emailRouter = require("./emailRouter");
 const mercadoPagoRouter = require("./mercadoPagoRouter")
 

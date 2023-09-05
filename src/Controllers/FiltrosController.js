@@ -4,6 +4,7 @@ const Habitaciones = require("../Models/Habitaciones");
 const Reservas = require("../Models/Reservas");
 const Reserva_Items = require("../Models/Reserva_Items");
 const moment = require("moment");
+const Clientes = require("../Models/Clientes");
 
 // http://localhost:3001/hotel/filtros
 //GET ALL RESERVAS - FILTRADO POR FECHAS
@@ -114,4 +115,31 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
   return { data: habitacionesDisponibles };
 };
 
-module.exports = getReserva_Filtros;
+//FILTRO RESERVAS POR USUARIO
+const getFiltroReservasPorUsuario = async (UsuarioId) => {
+  const findReservas = await Reservas.findAll({
+    where: {
+      UsuarioId: UsuarioId
+    },
+    include: [
+      {
+        model: Clientes,
+        attributes: ["doc_Identidad", "nombre", "apellidos", "email"],
+      },
+      {
+        model: Reserva_Items,
+        attributes: ["id", "cantidad", "precio", "HabitacionId"],
+        include: [
+          {
+            model: Habitaciones,
+            as: "Habitacion",
+            attributes: ["nroHabitacion"],
+          },
+        ],
+      },
+    ],
+  });
+  if (findReservas == 0) return { error: "No hay reservas" };
+  return { data: findReservas };
+};
+module.exports = { getReserva_Filtros, getFiltroReservasPorUsuario };
