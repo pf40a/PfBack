@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const getReserva_FiltrosHandler = require("../Handlers/reservas_FiltrosHandler");
+const { getReserva_FiltrosHandler, getReservaPorUsuario_FiltrosHandler } = require("../Handlers/FiltrosHandler");
 
 
 const filtrosRouter = Router();
@@ -8,5 +8,6 @@ const filtrosRouter = Router();
 
 //Filtro de los tipos de habitaciones disponibles 
 filtrosRouter.post("/", getReserva_FiltrosHandler);
+filtrosRouter.get("/reservaPorUsuario/:UsuarioId", getReservaPorUsuario_FiltrosHandler);
 
 module.exports = filtrosRouter;
