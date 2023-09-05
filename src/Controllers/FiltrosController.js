@@ -119,7 +119,7 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
 const getFiltroReservasPorUsuario = async (UsuarioId) => {
   const findReservas = await Reservas.findAll({
     where: {
-      UsuarioId: UsuarioId
+      UsuarioId: UsuarioId,
     },
     include: [
       {
@@ -138,6 +138,7 @@ const getFiltroReservasPorUsuario = async (UsuarioId) => {
         ],
       },
     ],
+    order: [["createdAt", "DESC"]],
   });
   if (findReservas == 0) return { error: "No hay reservas" };
   return { data: findReservas };

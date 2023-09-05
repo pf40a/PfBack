@@ -8,6 +8,6 @@ const filtrosRouter = Router();
 
 //Filtro de los tipos de habitaciones disponibles 
 filtrosRouter.post("/", getReserva_FiltrosHandler);
-filtrosRouter.get("/porUsuario/:UsuarioId", getReservaPorUsuario_FiltrosHandler);
+filtrosRouter.get("/reservaPorUsuario/:UsuarioId", getReservaPorUsuario_FiltrosHandler);
 
 module.exports = filtrosRouter;
