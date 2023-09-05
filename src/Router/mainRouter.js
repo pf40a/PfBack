@@ -9,6 +9,7 @@ const reserva_ItemsRouter = require("./reservas_ItemsRouter");
 const subTipoRouter = require("./subTipoRouter");
 const filtrosRouter = require("./reservas_FiltrosRouter");
 const emailRouter = require("./emailRouter");
+const mercadoPagoRouter = require("./mercadoPagoRouter")
 
 const router = Router();
 
@@ -24,5 +25,6 @@ router.use("/filtros", filtrosRouter);
 router.use("/subtipo", subTipoRouter)
 
 router.use("/email", emailRouter)
+router.use("/mercadoPago", mercadoPagoRouter)
 
 module.exports = router;

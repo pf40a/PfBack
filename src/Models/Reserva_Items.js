@@ -23,14 +23,16 @@ const Reserva_Items = sequelize.define(
       type: DataTypes.DOUBLE,
       allowNull: false,
     },
-
+    cantidad: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    }, 
     //Borrado lógico
     deleted: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false,
     },
-    
   },
   {
     timestamps: false,

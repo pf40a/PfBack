@@ -43,6 +43,7 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
       },
     ],
   });
+  //return {data: listaHabitacionesReservadas}
   const habitacionesDisponibles = [];
   // Agrupar habitaciones por tipo, subtipo, descripcion, caracteristica y capacidad
   const habitacionesAgrupadas = {};
@@ -92,8 +93,10 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
         descripcion: habitacion.Habitacion_Detalle.descripcion,
         caracteristica: habitacion.Habitacion_Detalle.caracteristica,
         precio: habitacion.Habitacion_Detalle.precio,
+        //cantidad:1,
         capacidad: habitacion.Habitacion_Detalle.capacidad,
         image: habitacion.Habitacion_Detalle.image,
+        habitacion_Disponible: habitacionesDisponiblesGrupo.length,
         habitaciones: habitacionesDisponiblesGrupo.map((el) => {
           return {
             id: el.id,
@@ -105,10 +108,10 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
       });
     }
   }
-  
-  if(!habitacionesDisponibles) return {error: "No hay habitaciones disponibles"}
+
+  if (!habitacionesDisponibles)
+    return { error: "No hay habitaciones disponibles" };
   return { data: habitacionesDisponibles };
-  
 };
 
 module.exports = getReserva_Filtros;
