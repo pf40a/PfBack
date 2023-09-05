@@ -1,6 +1,6 @@
 const Habitaciones = require("../Models/Habitaciones")
 const Reserva_Items = require("../Models/Reserva_Items")
-const Reservas = require("../Models/Reservas")
+//const Reservas = require("../Models/Reservas")
 
 //GET ALL RESERVAS ITEMS
 const getReserva_Items = async () => {
@@ -47,11 +47,12 @@ const disableReserva_Items = async (id) => {
 }
 
 //CREAR UNA RESERVA ITEM
-const postReserva_Items = async ( precio, HabitacionId, ReservaId ) => {
+const postReserva_Items = async ( precio, cantidad, HabitacionId, ReservaId ) => {
     const nuevoReservaItem = await Reserva_Items.create({
-        precio,
-        ReservaId,
-        HabitacionId
+      precio,
+      cantidad,
+      ReservaId,
+       HabitacionId
     })
     
 
@@ -64,11 +65,13 @@ const postReserva_Items = async ( precio, HabitacionId, ReservaId ) => {
 }
 
 // MODIFICAR RESERVA ITEM
-const putReserva_Items = async (id, precio) => {
+const putReserva_Items = async (id, precio, cantidad, HabitacionId) => {
     const findReservaItem = await Reserva_Items.findByPk(id)
     if(!findReservaItem) return { error: "Reserva Item no existe" }
 
-    if(precio) findReservaItem.precio = precio
+  if (precio) findReservaItem.precio = precio
+  if(cantidad) findReservaItem.cantidad=cantidad
+  if(HabitacionId) findReservaItem.HabitacionId=HabitacionId
 
     await findReservaItem.save()
 

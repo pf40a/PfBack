@@ -1,4 +1,6 @@
 
+
+const { auth } = require("../Firebase/Config");
 const Reviews = require("../Models/Reviews");
 const Usuarios = require("../Models/Usuarios");
 const bcrypt = require("bcrypt");
@@ -43,17 +45,19 @@ const getUserById = async (id) => {
 };
 
 //POST - CREA UN NUEVO USUARIO
-const postUser = async (nombre, apellido, email, password, admin) => {
+const postUser = async (id, nombre, apellido, email, password, googleUser, admin) => {
   const validateEmail = await Usuarios.findAndCountAll({ where: { email } });
   if (validateEmail.count > 0) return { error: "Email Repetido" };
   // Genera el hash de la contraseña
   const hashedPassword = await bcrypt.hash(password, 10);
 
   const nuevoUser = await Usuarios.create({
-    nombre,
-    apellido,
+    id: id || "",
+    nombre: nombre || "",
+    apellido: apellido || "",
     email,
     password: hashedPassword,
+    googleUser: googleUser || false,
     admin,
   });
 
@@ -62,6 +66,15 @@ const postUser = async (nombre, apellido, email, password, admin) => {
 
 // ELIMINA FISICAMENTE UN USUARIO
 const deleteUser = async (id) => {
+  // Eliminando de Firebase
+  auth.deleteUser(id)
+  .then(() => {
+    console.log('Usuario eliminado con éxito.');
+  })
+  .catch((error) => {
+    console.error('Error al eliminar el usuario:', error);
+  });
+
   const user = await Usuarios.findByPk(id)
   if (!user) return { error: "Usuario no existe" };
   
