@@ -1,17 +1,32 @@
 const Reservas = require("../Models/Reservas")
 const Clientes  = require("../Models/Clientes")
-//const Usuarios = require("../Models/Usuarios")
-//const { Op } = require("sequelize")
+
 const moment = require("moment");
+const Reserva_Items = require("../Models/Reserva_Items");
+const Habitaciones = require("../Models/Habitaciones");
 
 // GET ALL RESERVAS
 const getReservas = async () => {
     const findReservas = await Reservas.findAll({
-        include: [{
-            model: Clientes,
-            attributes: ['doc_Identidad', 'nombre', 'apellidos', 'email'] 
-        }]
-    })
+      
+      include: [
+        {
+          model: Clientes,
+          attributes: ["doc_Identidad", "nombre", "apellidos", "email"],
+        },
+          {
+          model: Reserva_Items,
+          attributes: ["id","cantidad", "precio", "HabitacionId"],
+          include: [
+            {
+              model: Habitaciones,
+              as: "Habitacion",
+              attributes: ["nroHabitacion"],
+            },
+          ],
+        },  
+      ],
+    });
     if (findReservas == 0) return { error: "No hay reservas"}
     return { data: findReservas}
 }
@@ -56,8 +71,8 @@ const postReservas = async (fechaIngreso, fechaSalida, adultos, ninos, pago_Esta
   
   //CAMBIAR EL FORMATO
   //"dd-mm-aaaa"
-   fechaIngreso = moment(fechaIngreso, "DD-MM-YYYY").format("YYYY-MM-DD");
-  fechaSalida = moment(fechaSalida, "DD-MM-YYYY").format("YYYY-MM-DD");
+  //  fechaIngreso = moment(fechaIngreso, "DD-MM-YYYY").format("YYYY-MM-DD");
+  // fechaSalida = moment(fechaSalida, "DD-MM-YYYY").format("YYYY-MM-DD");
 
 
     const nuevaReserva = await Reservas.create({
@@ -79,11 +94,11 @@ const putReservas = async (id, fechaIngreso, fechaSalida, adultos, ninos) => {
     if (!findReserva) return { error: "Esta Reserva no existe"}
 
   if (fechaIngreso) {
-    fechaIngreso = moment(fechaIngreso, "DD-MM-YYYY").format("YYYY-MM-DD");
+   // fechaIngreso = moment(fechaIngreso, "DD-MM-YYYY").format("YYYY-MM-DD");
     findReserva.fechaIngreso = fechaIngreso;
   }
   if (fechaSalida) {
-    fechaSalida = moment(fechaSalida, "DD-MM-YYYY").format("YYYY-MM-DD")
+   // fechaSalida = moment(fechaSalida, "DD-MM-YYYY").format("YYYY-MM-DD")
     findReserva.fechaSalida = fechaSalida;
   }
     if(adultos) findReserva.adultos = adultos

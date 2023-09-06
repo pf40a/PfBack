@@ -4,6 +4,7 @@ const Habitaciones = require("../Models/Habitaciones");
 const Reservas = require("../Models/Reservas");
 const Reserva_Items = require("../Models/Reserva_Items");
 const moment = require("moment");
+const Clientes = require("../Models/Clientes");
 
 // http://localhost:3001/hotel/filtros
 //GET ALL RESERVAS - FILTRADO POR FECHAS
@@ -43,6 +44,7 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
       },
     ],
   });
+  //return {data: listaHabitacionesReservadas}
   const habitacionesDisponibles = [];
   // Agrupar habitaciones por tipo, subtipo, descripcion, caracteristica y capacidad
   const habitacionesAgrupadas = {};
@@ -92,8 +94,10 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
         descripcion: habitacion.Habitacion_Detalle.descripcion,
         caracteristica: habitacion.Habitacion_Detalle.caracteristica,
         precio: habitacion.Habitacion_Detalle.precio,
+        //cantidad:1,
         capacidad: habitacion.Habitacion_Detalle.capacidad,
         image: habitacion.Habitacion_Detalle.image,
+        habitacion_Disponible: habitacionesDisponiblesGrupo.length,
         habitaciones: habitacionesDisponiblesGrupo.map((el) => {
           return {
             id: el.id,
@@ -105,10 +109,38 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
       });
     }
   }
-  
-  if(!habitacionesDisponibles) return {error: "No hay habitaciones disponibles"}
+
+  if (!habitacionesDisponibles)
+    return { error: "No hay habitaciones disponibles" };
   return { data: habitacionesDisponibles };
-  
 };
 
-module.exports = getReserva_Filtros;
+//FILTRO RESERVAS POR USUARIO
+const getFiltroReservasPorUsuario = async (UsuarioId) => {
+  const findReservas = await Reservas.findAll({
+    where: {
+      UsuarioId: UsuarioId,
+    },
+    include: [
+      {
+        model: Clientes,
+        attributes: ["doc_Identidad", "nombre", "apellidos", "email"],
+      },
+      {
+        model: Reserva_Items,
+        attributes: ["id", "cantidad", "precio", "HabitacionId"],
+        include: [
+          {
+            model: Habitaciones,
+            as: "Habitacion",
+            attributes: ["nroHabitacion"],
+          },
+        ],
+      },
+    ],
+    order: [["createdAt", "DESC"]],
+  });
+  if (findReservas == 0) return { error: "No hay reservas" };
+  return { data: findReservas };
+};
+module.exports = { getReserva_Filtros, getFiltroReservasPorUsuario };
