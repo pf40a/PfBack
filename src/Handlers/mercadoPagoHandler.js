@@ -1,4 +1,4 @@
-const { createPreference, getFeedBack } = require("../Controllers/mercadoPagoController")
+const { createPreference, getFeedBack, webhookController } = require("../Controllers/mercadoPagoController")
 
 
 const createPreferenceHandler = async (req, res) => {
@@ -30,5 +30,20 @@ const feedBackHandler = async (req, res) => {
     }
 }
 
+const webhookHandler = async (req, res) => {
+    try {
 
-module.exports = { createPreferenceHandler, feedBackHandler };
+        const { notificationData } = req.body
+
+        const resultado = await webhookController(notificationData)
+
+        if(resultado.error) return res.status(400).json(resultado)
+        return res.status(200).json(resultado)
+        
+    } catch (error) {
+        return res.status(401).json({ error: error.message })
+    }
+}
+
+
+module.exports = { createPreferenceHandler, feedBackHandler, webhookHandler };
