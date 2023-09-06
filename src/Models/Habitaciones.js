@@ -5,9 +5,9 @@ const Habitaciones = sequelize.define(
   "Habitaciones",
   {
     id: {
-      type: DataTypes.UUID,
+      type: DataTypes.INTEGER,
       primaryKey: true,
-      defaultValue: UUIDV4,
+      autoIncrement: true
     },
     /* HabitacionDetalleId: {
       type: DataTypes.STRING,
@@ -17,11 +17,7 @@ const Habitaciones = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    reservado: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue:false
-    },
+   
     nivel: {
       type: DataTypes.STRING,
       allowNull: false,

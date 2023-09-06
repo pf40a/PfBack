@@ -20,20 +20,20 @@ const Reviews = sequelize.define(
     },
     comentario: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      //allowNull: false,
     },
     deleted: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false
     },
-    fecha: {
+    /* fecha: {
       type: DataTypes.DATEONLY,
       allowNull:false,
-    }
+    } */
   },
   {
-    timestamps: false,
+    timestamps: true,
   }
 );
 

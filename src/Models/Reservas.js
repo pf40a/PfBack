@@ -9,11 +9,11 @@ const Reservas = sequelize.define(
       primaryKey: true,
       defaultValue: UUIDV4,
     },
-    /* usuarioId: {
+    /* UsuarioId: {
       type: DataTypes.STRING,
       allowNull: false,
     }, */
-    /* clienteId: {
+    /* ClienteId: {
       type: DataTypes.STRING,
       allowNull: false,
     }, */
@@ -35,10 +35,11 @@ const Reservas = sequelize.define(
       allowNull: false,
       defaultValue: 0,
     },
-    //Anulada, Activo,
-    estado: {
-      type: DataTypes.STRING,
+    //Borrado lógico
+    deleted: {
+      type: DataTypes.BOOLEAN,
       allowNull: false,
+      defaultValue: false,
     },
     pago_Estado: {
       type: DataTypes.STRING,

@@ -5,11 +5,10 @@ const Usuarios = sequelize.define(
   "Usuarios",
   {
     id: {
-      type: DataTypes.UUID,
+      type: DataTypes.STRING,
       primaryKey: true,
-      defaultValue: UUIDV4,
     },
-    name: {
+    nombre: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -20,7 +19,7 @@ const Usuarios = sequelize.define(
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+      unique:true,
     },
     password: {
       type: DataTypes.STRING,
@@ -36,10 +35,11 @@ const Usuarios = sequelize.define(
       allowNull: false,
       defaultValue: false,
     },
-    estado: {
+    //Borrado lógico
+    deleted: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: true,
+      defaultValue: false,
     },
     //createdAt  //updatedAt
   },
