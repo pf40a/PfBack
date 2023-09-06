@@ -91,8 +91,8 @@ const disableUserHandler = async(req, res) =>{
 const putUserHandler = async(req, res) =>{
   try {
     const { id } = req.params
-    const {nombre, apellido, password, admin, deleted} = req.body
-    const resultado = await putUser(id, nombre, apellido, password, admin, deleted);
+    const {nombre, apellido, email, password, admin, deleted} = req.body
+    const resultado = await putUser(id, nombre, apellido, email, password, admin, deleted);
     
     if (resultado.error) return res.status(400).json(resultado);
     return res.status(200).json(resultado);
