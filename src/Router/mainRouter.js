@@ -9,12 +9,14 @@ const reserva_ItemsRouter = require("./reservas_ItemsRouter");
 const subTipoRouter = require("./subTipoRouter");
 const filtrosRouter = require("./FiltrosRouter");
 const emailRouter = require("./emailRouter");
-const mercadoPagoRouter = require("./mercadoPagoRouter")
+const mercadoPagoRouter = require("./mercadoPagoRouter");
+const carritoRouter = require("./carritoRouter");
 
 const router = Router();
 
 router.use("/users", userRouter);  // http://localhost:3001/hotel/users
 router.use("/clientes", clientesRouter);  // http://localhost:3001/hotel/clientes
+router.use("/carrito", carritoRouter);  // http://localhost:3001/hotel/carrito
 router.use("/habitaciones/detalle", habitacion_DetallesRouter);
 router.use("/habitaciones", habitacionesRouter);
 router.use("/reservas", reservasRouter);
