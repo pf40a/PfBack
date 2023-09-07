@@ -52,7 +52,7 @@ const webhookController = async (notificationData) => {
 
 	// await findReserva.save()
 
-	console.log(notificationData);
+	return notificationData
 
 }
 
