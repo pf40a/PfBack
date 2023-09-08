@@ -4,7 +4,7 @@ const Reservas = require("../Models/Reservas")
 
 mercadopago.configure({ 
     sandbox: true,
-    access_token: "TEST-4582676939885627-083011-b301d1d18ace9dafb54e061ad306aed1-273198687" 
+    access_token: "TEST-508040938720192-090614-557cac0119da0e6b22d1c149f7cde1dc-1471212597" 
 });
 
 const createPreference = async (items, reservaId) => {
@@ -43,4 +43,17 @@ const getFeedBack = async (payment_id, status, merchant_order_id, reservaId) => 
 	};
 };
 
-module.exports = { createPreference, getFeedBack }
+const webhookController = async (notificationData) => {
+	
+	// DESCOMENTAR PARA PRUEBA CUANDO SE HAGA EL DEPLOY
+
+	// const findReserva = await Reservas.findByPk(notificationData.metadata.reservaId)
+	// findReserva.pago_Estado = notificationData.data.status
+
+	// await findReserva.save()
+
+	return notificationData
+
+}
+
+module.exports = { createPreference, getFeedBack, webhookController }
