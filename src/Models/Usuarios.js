@@ -21,10 +21,10 @@ const Usuarios = sequelize.define(
       allowNull: false,
       unique:true,
     },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    // password: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
     admin: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
