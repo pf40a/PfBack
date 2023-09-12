@@ -34,10 +34,23 @@ const getReservas = async () => {
 //GET RESERVA BY ID
 const getReservasById = async (id) => {
     const findReserva = await Reservas.findByPk(id, {
-        include: {
+      include: [
+        {
             model: Clientes,
             attributes: ['doc_Identidad', 'nombre', 'apellidos', 'email']
-        }
+        },
+        {
+          model: Reserva_Items,
+          attributes: ["id","cantidad", "precio", "HabitacionId"],
+          include: [
+            {
+              model: Habitaciones,
+              as: "Habitacion",
+              attributes: ["nroHabitacion"],
+            },
+          ],
+        },  
+      ]
     })
 
     if (!findReserva) return { error: "Reserva no existe"};
