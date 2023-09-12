@@ -16,7 +16,7 @@ const sendEmail = async (email, mensaje, asunto, nombre, fechaLlegada, fechaSali
   let selectedTemplate;
 
   // Determinar qué plantilla utilizar según el valor de templateType
-  if (templateType === 'general') {
+  if (!templateType || templateType === "general") {
     selectedTemplate = emailTemplateGeneral(nombre, mensaje);
   } else if (templateType === 'reserva') {
     selectedTemplate = emailTemplateReserva(nombre, mensaje, fechaLlegada, fechaSalida, tipoHabitacion, numeroHabitacion, tarifaTotal);
