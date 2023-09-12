@@ -104,6 +104,9 @@ const putReservas = async (id, fechaIngreso, fechaSalida, adultos, ninos) => {
     if(adultos) findReserva.adultos = adultos
     if(ninos) findReserva.ninos = ninos
 
+    //
+    //
+
     await findReserva.save()
 
     if(!findReserva) return { error: "No se guardaron los cambios"}
