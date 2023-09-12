@@ -12,9 +12,9 @@ const createPreference = async (items, reservaId) => {
     let preference = {//Definimos la preferencia para pasarsela a mercado pago
 		items: items,
 		back_urls: {
-			"success": `https://pffront40.onrender.com/?reservaId=${reservaId}`,//PRUEBA
-			"failure": `https://pffront40.onrender.com/?reservaId=${reservaId}`,//PRUEBA
-			"pending": `https://pffront40.onrender.com/?reservaId=${reservaId}` //PRUEBA2
+			"success": `https://hotel-oasis.onrender.com/hotel/mercadoPago/feedback/?reservaId=${reservaId}`,
+			"failure": `https://hotel-oasis.onrender.com/hotel/mercadoPago/feedback/?reservaId=${reservaId}`,
+			"pending": `https://hotel-oasis.onrender.com/hotel/mercadoPago/feedback/?reservaId=${reservaId}` 
 		},
 		auto_return: "approved",
 	};
