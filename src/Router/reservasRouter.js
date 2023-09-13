@@ -4,7 +4,7 @@ const { getReservasHandler, getReservasByIdHandler, deleteReservasHandler, disab
 
 const reservasRouter = Router();
 
-// http://localhost:3001/hotel/reservas
+// http://localhost:3001/hotel/reservas/disable
 
 reservasRouter.get("/", getReservasHandler)
 reservasRouter.get("/:id", getReservasByIdHandler);

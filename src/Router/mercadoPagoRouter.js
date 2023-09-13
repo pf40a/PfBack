@@ -1,7 +1,7 @@
 const { Router } = require("express");
 
 // Importando de los Handlers
-const { createPreferenceHandler, feedBackHandler } = require("../Handlers/mercadoPagoHandler");
+const { createPreferenceHandler, feedBackHandler, webhookHandler } = require("../Handlers/mercadoPagoHandler");
 
 const mercadoPagoRouter = Router();
 
@@ -9,6 +9,7 @@ const mercadoPagoRouter = Router();
 
 mercadoPagoRouter.post("/create_preference", createPreferenceHandler);
 mercadoPagoRouter.get("/feedback", feedBackHandler)
+mercadoPagoRouter.post("/webhook", webhookHandler)
 
 
 module.exports = mercadoPagoRouter;

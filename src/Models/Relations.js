@@ -1,3 +1,4 @@
+const Carrito = require("./Carrito");
 const Clientes = require("./Clientes");
 const Habitacion_Detalle = require("./Habitacion_Detalles");
 const Habitaciones = require("./Habitaciones");
@@ -30,6 +31,9 @@ Reserva_Items.belongsTo(Habitaciones, {
 //HABITACIONES RELATIONS
 Habitaciones.belongsTo(Habitacion_Detalle);
 
+//CARRITO
+Usuarios.hasOne(Carrito);
+Carrito.belongsTo(Usuarios);
 
 module.exports = {
   Usuarios,
@@ -40,4 +44,5 @@ module.exports = {
   Habitaciones,
   Habitacion_Detalle,
   SubTipo_Habitaciones,
+  Carrito,
 };
