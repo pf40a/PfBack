@@ -5,9 +5,6 @@ const Usuarios = require("../Models/Usuarios");
 // GET ALL REVIEWS
 const getReviews = async () => {
   const findReviews = await Reviews.findAll({
-    where: {
-      deleted: false,
-    },
     include: [
       {
         model: Usuarios,
