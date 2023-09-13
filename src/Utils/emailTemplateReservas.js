@@ -75,8 +75,24 @@ module.exports = (nombre, mensaje, fechaLlegada, fechaSalida, tipoHabitacion, nu
             <!-- Contenedor del mensaje -->
             <div class="mensaje">
                 <!-- Párrafo de texto -->
-                <p>
-                    ${mensaje}
+                <p style="text-align: left; margin: 10px;">
+                    Es un placer confirmar que su reserva en el Hotel Oasis ha sido creada con éxito. ¡Estamos encantados de darle la bienvenida a nuestro hotel y esperamos que disfrute de una estadía excepcional con nosotros!
+                </p>
+
+                <p style="text-align: left; margin: 10px;">
+                    Nuestro equipo está dedicado a hacer que su experiencia sea memorable y placentera. Si tiene alguna solicitud especial o necesidad durante su estadía, no dude en ponerse en contacto con nuestro personal de recepción, quienes estarán encantados de ayudarle en todo momento.
+                </p>
+
+                <p style="text-align: left; margin: 10px;">
+                    Si necesita hacer alguna modificación a su reserva o tiene alguna pregunta adicional, no dude en ponerse en contacto con nuestro equipo de reservas al +54 351 888 0023 o enviar un correo electrónico a <a href="mailto:hotel.oasis.adm@gmail.com">hotel.oasis.adm@gmail.com</a>. Estamos aquí para ayudarle en todo momento.
+                </p>
+
+                <p style="text-align: left; margin: 10px;"> 
+                    <strong>Nicolas Villagra</strong><br>
+                    <strong>Administador General</strong><br>
+                    <strong>Hotel Oasis</strong><br>
+                    <strong>+54 351 771 4962</strong><br>
+                    <strong><a href="mailto:nicolasvillagra@oasis.com">nicolasvillagra@oasis.com</a></strong><br>
                 </p>
             </div>
     
