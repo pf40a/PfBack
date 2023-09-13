@@ -65,7 +65,7 @@ const postReserva_ItemsHandler = async (req, res) => {
         const { precio, cantidad, HabitacionId, ReservaId } = req.body
         const resultado = await postReserva_Items(precio, cantidad, HabitacionId, ReservaId)
 
-        if(!resultado.error) return res.status(400).json(resultado)
+        if(resultado.error) return res.status(400).json(resultado)
         return res.status(200).json(resultado)
 
     } catch (error) {
