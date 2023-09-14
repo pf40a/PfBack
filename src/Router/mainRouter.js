@@ -11,6 +11,7 @@ const filtrosRouter = require("./FiltrosRouter");
 const emailRouter = require("./emailRouter");
 const mercadoPagoRouter = require("./mercadoPagoRouter");
 const carritoRouter = require("./carritoRouter");
+const imagenRouter = require("./imagenRouter");
 
 const router = Router();
 
@@ -25,6 +26,7 @@ router.use("/reviews", reviewsRouter)
 
 router.use("/filtros", filtrosRouter);
 router.use("/subtipo", subTipoRouter)
+router.use("/imagen", imagenRouter );
 
 router.use("/email", emailRouter)
 router.use("/mercadoPago", mercadoPagoRouter)

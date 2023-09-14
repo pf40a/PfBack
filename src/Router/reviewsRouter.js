@@ -9,7 +9,7 @@ const reviewsRouter = Router();
  reviewsRouter.get("/", getReviewsHandler)
  reviewsRouter.get("/:id", getReviewByIdHandler);
  reviewsRouter.delete("/:id", deleteReviewHandler);
- reviewsRouter.delete("/disable/:id", disableReviewHandler);
+ reviewsRouter.put("/disable/:id", disableReviewHandler);
  reviewsRouter.post("/", postReviewHandler);
  reviewsRouter.put("/:id", putReviewHandler);
 

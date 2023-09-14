@@ -30,7 +30,6 @@ const getReservas = async () => {
     if (findReservas == 0) return { error: "No hay reservas"}
     return { data: findReservas}
 }
-
 //GET RESERVA BY ID
 const getReservasById = async (id) => {
     const findReserva = await Reservas.findByPk(id, {
@@ -102,7 +101,7 @@ const postReservas = async (fechaIngreso, fechaSalida, adultos, ninos, pago_Esta
 }
 
 //ACTUALIZAR UNA RESERVA
-const putReservas = async (id, fechaIngreso, fechaSalida, adultos, ninos) => {
+const putReservas = async (id, fechaIngreso, fechaSalida, adultos, ninos, deleted, pago_Estado) => {
     const findReserva = await Reservas.findByPk(id)
     if (!findReserva) return { error: "Esta Reserva no existe"}
 
@@ -116,18 +115,21 @@ const putReservas = async (id, fechaIngreso, fechaSalida, adultos, ninos) => {
   }
     if(adultos) findReserva.adultos = adultos
     if(ninos) findReserva.ninos = ninos
-
-    //
-    //
-
-    await findReserva.save()
+  if (deleted === true) {
+    findReserva.deleted = true;
+  } else {
+    findReserva.deleted = false
+  }
+  if (pago_Estado) findReserva.pago_Estado = pago_Estado
+  
+  await findReserva.save()
 
     if(!findReserva) return { error: "No se guardaron los cambios"}
     return { data: findReserva, msg: "Reserva actualizada"}
 }
 
 module.exports = {
-    getReservas, 
+  getReservas, 
     getReservasById, 
     deleteReservas, 
     disableReservas, 

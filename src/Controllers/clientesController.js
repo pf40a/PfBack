@@ -103,11 +103,15 @@ const putClient =  async(nombre, apellidos, email, tipo_Documento, fechaNacimien
       if (direccion) {
         cliente.direccion = direccion;
       }
-      if (deleted === true) {
-        cliente.deleted= true;
+      
+
+      if (deleted && deleted === true) {
+        cliente.deleted = true;
       } else {
         cliente.deleted = false;
       }
+
+      
     await cliente.save();
 
     return { data: cliente, msg: "Cliente actualizado exitosamente" };

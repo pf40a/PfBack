@@ -1,6 +1,6 @@
 //const getReserva_Filtros = require("../Controllers/FiltrosController")
 
-const { getReserva_Filtros, getFiltroReservasPorUsuario } = require("../Controllers/FiltrosController");
+const { getReserva_Filtros, getFiltroReservasPorUsuario, getFiltroReviewPorUsuario } = require("../Controllers/FiltrosController");
 
 // Ruta para traer las habitaciones disponibles en un periodo de fecha
 const getReserva_FiltrosHandler = async (req, res) => {
@@ -15,7 +15,7 @@ const getReserva_FiltrosHandler = async (req, res) => {
       cantidadPersonas
     );
 
-    if (resultado.error) return res.statust(400).json(resultado);
+    if (resultado.error) return res.status(400).json(resultado);
     return res.status(200).json(resultado);
   } catch (error) {
         return res.status(401).json({error: error.message})
@@ -32,7 +32,22 @@ const getReservaPorUsuario_FiltrosHandler = async (req, res) => {
       UsuarioId
     );
 
-    if (resultado.error) return res.statust(400).json(resultado);
+    if (resultado.error) return res.status(400).json(resultado);
+    return res.status(200).json(resultado);
+  } catch (error) {
+    return res.status(401).json({ error: error.message });
+  }
+};
+
+const getReviewsPorUsuario_FiltrosHandler = async (req, res) => {
+  // return res.status(200).send("get Reserva Filtros");
+
+  try {
+    // Obtenemos los parámetros del cuerpo de la solicitud
+    const { UsuarioId } = req.params;
+    const resultado = await getFiltroReviewPorUsuario(UsuarioId);
+
+    if (resultado.error) return res.status(400).json(resultado);
     return res.status(200).json(resultado);
   } catch (error) {
     return res.status(401).json({ error: error.message });
@@ -42,4 +57,5 @@ const getReservaPorUsuario_FiltrosHandler = async (req, res) => {
 module.exports = {
   getReserva_FiltrosHandler,
   getReservaPorUsuario_FiltrosHandler,
+  getReviewsPorUsuario_FiltrosHandler,
 };

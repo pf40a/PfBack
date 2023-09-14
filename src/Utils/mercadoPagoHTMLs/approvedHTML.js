@@ -1,3 +1,4 @@
+
 module.exports =
 `<html lang="es">
 <head>
@@ -8,7 +9,7 @@ module.exports =
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #f0f0f0;
+            background-color: #ffffff;
             margin: 0;
             padding: 0;
         }
@@ -36,6 +37,16 @@ module.exports =
             border-radius: 5px;
             font-weight: bold;
         }
+
+        /* Estilos del footer */
+        footer {
+            background-color: #081f37;
+            color: white; 
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -43,8 +54,23 @@ module.exports =
         <h1>Pago Confirmado</h1>
         <p>El pago se ha procesado con éxito.</p>
 
+        <img src="https://static.vecteezy.com/system/resources/previews/014/608/966/non_2x/payment-line-icon-on-white-background-free-vector.jpg" alt="Pago" width="250">
+
+        <br><br><br><br>
+
         <!-- Botón de redirección al home del frontend -->
         <a class="button" href="https://pffront40.onrender.com">Ir al Inicio</a>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="mx-6 py-10 text-center md:text-left">
+            <div class="bg-neutral-200 py-2 text-sm text-neutral-500 dark:text-neutral-300">
+                <p class="text-center">
+                    &copy; 2023 Oasis Hotel. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>`
