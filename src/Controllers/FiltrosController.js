@@ -145,7 +145,7 @@ const getFiltroReservasPorUsuario = async (UsuarioId) => {
   if (findReservas == 0) return { error: "No hay reservas" };
   return { data: findReservas };
 };
-
+//FILTRO REVIEWS POR USUARIO
 const getFiltroReviewPorUsuario = async (UsuarioId) => {
   const findReview = await Reviews.findAll({
     where: {

@@ -15,7 +15,7 @@ const getReserva_FiltrosHandler = async (req, res) => {
       cantidadPersonas
     );
 
-    if (resultado.error) return res.statust(400).json(resultado);
+    if (resultado.error) return res.status(400).json(resultado);
     return res.status(200).json(resultado);
   } catch (error) {
         return res.status(401).json({error: error.message})
@@ -32,7 +32,7 @@ const getReservaPorUsuario_FiltrosHandler = async (req, res) => {
       UsuarioId
     );
 
-    if (resultado.error) return res.statust(400).json(resultado);
+    if (resultado.error) return res.status(400).json(resultado);
     return res.status(200).json(resultado);
   } catch (error) {
     return res.status(401).json({ error: error.message });
@@ -47,7 +47,7 @@ const getReviewsPorUsuario_FiltrosHandler = async (req, res) => {
     const { UsuarioId } = req.params;
     const resultado = await getFiltroReviewPorUsuario(UsuarioId);
 
-    if (resultado.error) return res.statust(400).json(resultado);
+    if (resultado.error) return res.status(400).json(resultado);
     return res.status(200).json(resultado);
   } catch (error) {
     return res.status(401).json({ error: error.message });
