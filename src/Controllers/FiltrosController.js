@@ -5,6 +5,7 @@ const Reservas = require("../Models/Reservas");
 const Reserva_Items = require("../Models/Reserva_Items");
 const moment = require("moment");
 const Clientes = require("../Models/Clientes");
+const Reviews = require("../Models/Reviews");
 
 // http://localhost:3001/hotel/filtros
 //GET ALL RESERVAS - FILTRADO POR FECHAS
@@ -13,7 +14,8 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
   fechaInicio = moment(fechaInicio, "DD-MM-YYYY").format("YYYY-MM-DD");
   fechaFin = moment(fechaFin, "DD-MM-YYYY").format("YYYY-MM-DD");
   //return({data: fechaInicio, msg: fechaFin})
-  const listaHabitaciones = await Habitaciones.findAll({
+  const listaHabitaciones = await Habitaciones.findAll({ 
+    
     include: [
       {
         model: Habitacion_Detalles, //Habitacion_Detalle
@@ -40,7 +42,7 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
       },
       {
         model: Reservas, //Reserva
-        attributes: ["fechaIngreso", "fechaSalida"],
+        attributes: ["fechaIngreso", "fechaSalida", "deleted"],
       },
     ],
   });
@@ -73,7 +75,7 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
       (habitacion) => {
         const reservada = listaHabitacionesReservadas.some((reserva) => {
           return (
-            reserva.Habitacion.nroHabitacion === habitacion.nroHabitacion &&
+            reserva.Habitacion.nroHabitacion === habitacion.nroHabitacion && reserva.Reserva.deleted === false &&
             ((reserva.Reserva.fechaIngreso <= fechaFin &&
               (reserva.Reserva.fechaSalida >= fechaInicio ||
                 reserva.Reserva.fechaSalida === null)) ||
@@ -86,7 +88,7 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
     );
 
     if (habitacionesDisponiblesGrupo.length > 0) {
-      const habitacion = habitacionesDisponiblesGrupo[0]; // Tomamos una habitación de ejemplo para obtener datos comunes
+      const habitacion = habitacionesDisponiblesGrupo[0]; // Tomamos una habitación para obtener datos comunes
       habitacionesDisponibles.push({
         id: habitacion.Habitacion_Detalle.id,
         tipo_Habitacion: habitacion.Habitacion_Detalle.tipo_Habitacion,
@@ -143,4 +145,21 @@ const getFiltroReservasPorUsuario = async (UsuarioId) => {
   if (findReservas == 0) return { error: "No hay reservas" };
   return { data: findReservas };
 };
-module.exports = { getReserva_Filtros, getFiltroReservasPorUsuario };
+
+const getFiltroReviewPorUsuario = async (UsuarioId) => {
+  const findReview = await Reviews.findAll({
+    where: {
+      UsuarioId: UsuarioId,
+    },
+    
+    order: [["createdAt", "DESC"]],
+  });
+  if (findReview == 0) return { error: "No hay reviews" };
+  return { data: findReview };
+};
+
+module.exports = {
+  getReserva_Filtros,
+  getFiltroReservasPorUsuario,
+  getFiltroReviewPorUsuario,
+};

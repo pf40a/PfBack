@@ -85,7 +85,7 @@ const putReservasHandler = async (req,res) => {
 }
 
 module.exports = { 
-    getReservasHandler, 
+  getReservasHandler, 
     getReservasByIdHandler, 
     deleteReservasHandler, 
     disableReservasHandler, 

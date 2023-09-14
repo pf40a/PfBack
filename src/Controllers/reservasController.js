@@ -30,7 +30,6 @@ const getReservas = async () => {
     if (findReservas == 0) return { error: "No hay reservas"}
     return { data: findReservas}
 }
-
 //GET RESERVA BY ID
 const getReservasById = async (id) => {
     const findReserva = await Reservas.findByPk(id, {
@@ -130,7 +129,7 @@ const putReservas = async (id, fechaIngreso, fechaSalida, adultos, ninos, delete
 }
 
 module.exports = {
-    getReservas, 
+  getReservas, 
     getReservasById, 
     deleteReservas, 
     disableReservas, 
