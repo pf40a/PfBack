@@ -4,7 +4,7 @@ const { getReserva_FiltrosHandler, getReservaPorUsuario_FiltrosHandler, getRevie
 
 const filtrosRouter = Router();
 
-// http://localhost:3001/hotel/filtros
+// http://localhost:3001/hotel/filtros/reservaPorUsuario/:UsuarioId
 
 //Filtro de los tipos de habitaciones disponibles 
 filtrosRouter.post("/", getReserva_FiltrosHandler);
