@@ -53,7 +53,7 @@ module.exports =
         <h1>Tu pago esta siendo procesado.</h1>
         <p>Cualquier consulta comuncarse con la gerencia: +54 351 771 4963</p>
 
-        <img src="https://static.vecteezy.com/system/resources/previews/014/608/966/non_2x/payment-line-icon-on-white-background-free-vector.jpg" alt="Pago" width="250">
+        <img src="https://media.istockphoto.com/id/1447916289/zh/%E5%90%91%E9%87%8F/pending-payment-icon.jpg?s=612x612&w=0&k=20&c=YE2jZaUdA6n3U9c32frWzPCRRbZh2ENrPhJJmfaLmAk=" alt="Pago" width="250">
 
         <br><br><br><br>
 
