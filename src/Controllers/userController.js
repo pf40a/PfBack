@@ -12,7 +12,7 @@ const getUsuarios = async () => {
   return { data: findUsuarios };
 };
 
-// ---------------------------------------------------------
+//// ---------------------------------------------------------
 
 //GET USUARIO AL HACER LOGIN
 const getUserLogin = async (email) => {
@@ -34,7 +34,7 @@ const getUserLogin = async (email) => {
   // }
 };
 
-// ---------------------------------------------------------
+//// ---------------------------------------------------------
 
 //GET USUARIO BY ID
 const getUserById = async (id) => {
@@ -48,7 +48,7 @@ const getUserById = async (id) => {
   return { data: findUser };
 };
 
-// ---------------------------------------------------------
+//// ---------------------------------------------------------
 
 //POST - CREA UN NUEVO USUARIO
 const postUser = async (id, nombre, apellido, email, googleUser, admin) => {
@@ -72,7 +72,7 @@ const postUser = async (id, nombre, apellido, email, googleUser, admin) => {
   return { data: nuevoUser, msg: "Usuario creado" };
 };
 
-// ---------------------------------------------------------
+//// ---------------------------------------------------------
 
 // ELIMINA FISICAMENTE UN USUARIO
 const deleteUser = async (id) => {
@@ -107,7 +107,7 @@ const deleteUser = async (id) => {
   return { data: user, msg: "Usuario Eliminado" };
 };
 
-// ---------------------------------------------------------
+//// ---------------------------------------------------------
 
 //ELIMINA LOGICAMENTE UN USUARIO
 const disableUser = async (id) => {
@@ -117,43 +117,38 @@ const disableUser = async (id) => {
     },
   });
 
-  // Inhabilitando una/un cuenta/usuario de firebase
+  // Habilitando/inhabilitando una/un cuenta/usuario de firebase
 
-  auth
-    .updateUser(id, {
-      disabled: true,
-    })
-    .then((userRecord) => {
-      console.log(
-        "Cuenta de usuario inhabilitada con éxito:",
-        userRecord.toJSON()
-      );
-    })
-    .catch((error) => {
-      console.error("Error al inhabilitar la cuenta de usuario:", error);
-    });
+  // Obteniendo la información del usuario en Firebase
+  const userRecord = await auth.getUser(id);
 
+  // Determina si el usuario está actualmente habilitado o inhabilitado
+  const isDisabled = userRecord.disabled;
+
+  // Cambia el estado de habilitado/inhabilitado en función del estado actual
+  const updatedStatus = !isDisabled;
+
+  // Actualiza el estado del usuario en Firebase
+  await auth.updateUser(id, { disabled: updatedStatus });
+
+  // Habilitando/inhabilitando una/un cuenta/usuario de la BD
   if (!findUser) return { error: "Usuario no existe" };
   await findUser.update({ deleted: true });
   await findUser.save();
   return { data: findUser, msg: "Usuario Desactivado" };
 };
 
-// ---------------------------------------------------------
+//// ---------------------------------------------------------
 
 // MODIFICAR UN USUARIO
-const putUser = async (id, nombre, apellido, email, admin, deleted) => {
+const putUser = async ( id, nombre, apellido, email, password, admin, deleted ) => {
+  
   // -------- Modificando un usuario de Firebase --------
 
   // Cambiando la contraseña del usuario
 
-  // Verificar si solo se proporciona el correo electrónico
-  if (
-    email !== null &&
-    email !== undefined &&
-    (nombre === null || nombre === undefined) &&
-    (apellido === null || apellido === undefined)
-  ) {
+  // Verificar si password es true
+  if (password === true) {
     // Activar el cambio de contraseña
 
     const changePass = auth
@@ -162,7 +157,7 @@ const putUser = async (id, nombre, apellido, email, admin, deleted) => {
         const mensaje = `Diríjase al siguiente enlace para restablecer la contraseña: ${link}`;
         const asunto = "Oasis Hotel: Restablecer contraseña";
         // Envía un enlace de restablecimiento de contraseña al correo electrónico del usuario
-        sendEmail(email, mensaje, asunto);
+        sendEmail(email, mensaje, asunto, `${nombre} ${apellido}`);
         return {
           msg: "Enlace de restablecimiento de contraseña enviado:",
           link,
@@ -175,71 +170,66 @@ const putUser = async (id, nombre, apellido, email, admin, deleted) => {
         };
       });
     return changePass;
-  } else {
-    // Datos normales
-
-    // Objeto para almacenar las actualizaciones que deseas aplicar
-    const updates = {};
-
-    // Verificar si 'nombre' y 'apellido' están definidos y no son nulos
-    updates.displayName =
-      nombre !== null &&
-      nombre !== undefined &&
-      apellido !== null &&
-      apellido !== undefined
-        ? `${nombre} ${apellido}`
-        : nombre !== null && nombre !== undefined
-        ? nombre
-        : apellido !== null && apellido !== undefined
-        ? apellido
-        : updates.displayName;
-
-    // Verificar si 'email' está definido y no es nulo
-    updates.email =
-      email !== null && email !== undefined ? email : updates.email;
-
-    // Aplicar las actualizaciones solo si hay cambios que hacer
-
-    if (Object.keys(updates).length > 0) {
-      auth
-        .updateUser(id, updates)
-        .then((userRecord) => {
-          return {
-            msg: "Usuario actualizado con éxito:",
-            user: userRecord.toJSON(),
-          };
-        })
-        .catch((error) => {
-          return { msg: "Error al actualizar el usuario:", error };
-        });
-    }
-
-    // ------ Modificando un usuario de la BD local ------
-
-    const findUser = await Usuarios.findByPk(id);
-    if (!findUser) return { error: "Usuario no existe" };
-
-    if (nombre) findUser.nombre = nombre;
-    if (apellido) findUser.apellido = apellido;
-    if (email) findUser.email = email;
-
-    if (admin === true) {
-      findUser.admin = true;
-    } else {
-      findUser.admin = false;
-    }
-
-    if (deleted === true) {
-      findUser.deleted = true;
-    } else {
-      findUser.deleted = false;
-    }
-
-    await findUser.save();
-
-    if (!findUser) return { error: "No se guardó los cambios" };
-    return { data: findUser, msg: "Usuario actualizado" };
   }
+
+  // Datos normales
+
+  // Objeto para almacenar las actualizaciones que deseas aplicar
+  const updates = {};
+
+  // Verificar si 'nombre' y 'apellido' están definidos y no son nulos
+  updates.displayName =
+    nombre !== null &&
+    nombre !== undefined &&
+    apellido !== null &&
+    apellido !== undefined
+      ? `${nombre} ${apellido}`
+      : nombre !== null && nombre !== undefined
+      ? nombre
+      : apellido !== null && apellido !== undefined
+      ? apellido
+      : updates.displayName;
+
+  // Aplicar las actualizaciones solo si hay cambios que hacer
+
+  if (Object.keys(updates).length > 0) {
+    auth
+      .updateUser(id, updates)
+      .then((userRecord) => {
+        return {
+          msg: "Usuario actualizado con éxito:",
+          user: userRecord.toJSON(),
+        };
+      })
+      .catch((error) => {
+        return { msg: "Error al actualizar el usuario:", error };
+      });
+  }
+
+  // ------ Modificando un usuario de la BD local ------
+
+  const findUser = await Usuarios.findByPk(id);
+  if (!findUser) return { error: "Usuario no existe" };
+
+  if (nombre) findUser.nombre = nombre;
+  if (apellido) findUser.apellido = apellido;
+
+  if (admin === true) {
+    findUser.admin = true;
+  } else {
+    findUser.admin = false;
+  }
+
+  if (deleted === true) {
+    findUser.deleted = true;
+  } else {
+    findUser.deleted = false;
+  }
+
+  await findUser.save();
+
+  if (!findUser) return { error: "No se guardó los cambios" };
+  return { data: findUser, msg: "Usuario actualizado" };
 };
 
 module.exports = {

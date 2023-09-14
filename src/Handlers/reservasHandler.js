@@ -73,8 +73,8 @@ const postReservasHandler = async (req,res) => {
 const putReservasHandler = async (req,res) => {
     try {
         const { id } = req.params
-        const { fechaIngreso, fechaSalida, adultos, ninos } = req.body
-        const resultado = await putReservas( id, fechaIngreso, fechaSalida, adultos, ninos)
+        const { fechaIngreso, fechaSalida, adultos, ninos, deleted, pago_Estado } = req.body
+        const resultado = await putReservas( id, fechaIngreso, fechaSalida, adultos, ninos, deleted, pago_Estado)
 
         if(resultado.error) return res.status(400).json(resultado)
         return res.status(200).json(resultado)
@@ -85,7 +85,7 @@ const putReservasHandler = async (req,res) => {
 }
 
 module.exports = { 
-    getReservasHandler, 
+  getReservasHandler, 
     getReservasByIdHandler, 
     deleteReservasHandler, 
     disableReservasHandler, 
