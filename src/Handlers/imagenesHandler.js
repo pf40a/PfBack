@@ -22,8 +22,9 @@ const postImagenHandler = async(req, res) =>{
 
   try {
   
-     const resultado = await postImagen(req.files["photo"]);
-
+    //const resultado = await postImagen(req.files.file);
+   // console.log(req.files["photo"]);
+const resultado = await postImagen(req.files["photo"])
      res.status(200).send("archivo subido");
 
   } catch (error) {

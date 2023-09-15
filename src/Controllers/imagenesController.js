@@ -17,8 +17,9 @@ const client = new S3Client({
 });
 
 async function postImagen(file) {
+  console.log(file)
   const stream = fs.createReadStream(file.tempFilePath);
-
+ //const stream = fs.createReadStream(file);
   const uploadParams = {
     Bucket: AWS_BUCKET_NAME,
     Key: file.name,
