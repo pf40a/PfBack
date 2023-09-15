@@ -53,7 +53,7 @@ module.exports =
         <h1>Tu pago fue rechazado.</h1>
         <p>Por favor comunicarte con la gerencia: +54 351 771 4963</p>
 
-        <img src="https://static.vecteezy.com/system/resources/previews/014/608/966/non_2x/payment-line-icon-on-white-background-free-vector.jpg" alt="Pago" width="250">
+        <img src="https://cdn-icons-png.flaticon.com/512/259/259420.png" alt="Pago" width="250">
 
         <br><br><br><br>
 
