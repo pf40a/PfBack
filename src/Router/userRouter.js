@@ -11,7 +11,7 @@ const {
 
 const userRouter = Router();
 
-// http://localhost:3001/hotel/users
+// http://localhost:3001/hotel/users/disable/:id
 
 userRouter.get("/", getUsuariosHandler);
 userRouter.post("/login", getUserLoginHandler);
