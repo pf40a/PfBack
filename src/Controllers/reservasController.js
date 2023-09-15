@@ -64,6 +64,12 @@ const deleteReservas = async (id) => {
         },
     })
 
+  if (reservaEliminada === 0) {
+    return {error: "Reserva no encontrada"}
+  }
+  //Eliminar los Items de esa Reserva
+  await Reserva_Items.destroy({ where: { ReservaId: null } })
+  
     if(!reservaEliminada) return {error: "Reserva no existe"}
     return { data: reservaEliminada, msg: "Reserva eliminada"}
 }

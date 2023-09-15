@@ -42,7 +42,7 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
       },
       {
         model: Reservas, //Reserva
-        attributes: ["fechaIngreso", "fechaSalida", "deleted"],
+        attributes: ["fechaIngreso", "fechaSalida"],
       },
     ],
   });
@@ -75,7 +75,7 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
       (habitacion) => {
         const reservada = listaHabitacionesReservadas.some((reserva) => {
           return (
-            reserva.Habitacion.nroHabitacion === habitacion.nroHabitacion && reserva.Reserva.deleted === false &&
+            reserva.Habitacion.nroHabitacion === habitacion.nroHabitacion &&
             ((reserva.Reserva.fechaIngreso <= fechaFin &&
               (reserva.Reserva.fechaSalida >= fechaInicio ||
                 reserva.Reserva.fechaSalida === null)) ||
@@ -96,6 +96,7 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
         descripcion: habitacion.Habitacion_Detalle.descripcion,
         caracteristica: habitacion.Habitacion_Detalle.caracteristica,
         precio: habitacion.Habitacion_Detalle.precio,
+        
         //cantidad:1,
         capacidad: habitacion.Habitacion_Detalle.capacidad,
         image: habitacion.Habitacion_Detalle.image,
