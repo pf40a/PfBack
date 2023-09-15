@@ -42,7 +42,7 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
       },
       {
         model: Reservas, //Reserva
-        attributes: ["fechaIngreso", "fechaSalida"],
+        attributes: ["fechaIngreso", "fechaSalida", "deleted"],
       },
     ],
   });
