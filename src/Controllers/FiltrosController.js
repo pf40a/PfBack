@@ -9,10 +9,10 @@ const Reviews = require("../Models/Reviews");
 
 // http://localhost:3001/hotel/filtros
 //GET ALL RESERVAS - FILTRADO POR FECHAS
-const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
+const getReserva_Filtros = async (fechaInicio, fechaFin) => {
   //cambiar el formato de fechas
-  //fechaInicio = moment(fechaInicio, "DD-MM-YYYY").format("YYYY-MM-DD");
- // fechaFin = moment(fechaFin, "DD-MM-YYYY").format("YYYY-MM-DD");
+  fechaInicio = moment(fechaInicio, "DD-MM-YYYY").format("YYYY-MM-DD");
+  fechaFin = moment(fechaFin, "DD-MM-YYYY").format("YYYY-MM-DD");
   //return({data: fechaInicio, msg: fechaFin})
   const listaHabitaciones = await Habitaciones.findAll({ 
     
