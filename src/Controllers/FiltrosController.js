@@ -11,6 +11,7 @@ const Reviews = require("../Models/Reviews");
 //GET ALL RESERVAS - FILTRADO POR FECHAS
 const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
   //cambiar el formato de fechas
+  console.log(fechaInicio)
   //fechaInicio = moment(fechaInicio, "DD-MM-YYYY").format("YYYY-MM-DD");
   //fechaFin = moment(fechaFin, "DD-MM-YYYY").format("YYYY-MM-DD");
   //return({data: fechaInicio, msg: fechaFin})
@@ -78,17 +79,19 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
         const reservada = listaHabitacionesReservadas.some((reserva) => {
           return (
             reserva.Habitacion.nroHabitacion === habitacion.nroHabitacion &&
-            ((reserva.Reserva.fechaIngreso <= fechaFin &&
+            ((reserva.Reserva &&
+              reserva.Reserva.fechaIngreso <= fechaFin &&
               (reserva.Reserva.fechaSalida >= fechaInicio ||
                 reserva.Reserva.fechaSalida === null)) ||
-              (reserva.Reserva.fechaSalida === null &&
+              (reserva.Reserva &&
+                reserva.Reserva.fechaSalida === null &&
                 reserva.Reserva.fechaIngreso <= fechaFin))
           );
         });
         return !reservada;
       }
     );
-
+    //reserva.Reserva && reserva.Reserva.fechaIngreso
     if (habitacionesDisponiblesGrupo.length > 0) {
       const habitacion = habitacionesDisponiblesGrupo[0]; // Tomamos una habitación para obtener datos comunes
       habitacionesDisponibles.push({
@@ -98,7 +101,7 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
         descripcion: habitacion.Habitacion_Detalle.descripcion,
         caracteristica: habitacion.Habitacion_Detalle.caracteristica,
         precio: habitacion.Habitacion_Detalle.precio,
-        
+
         //cantidad:1,
         capacidad: habitacion.Habitacion_Detalle.capacidad,
         image: habitacion.Habitacion_Detalle.image,
