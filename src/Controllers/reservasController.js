@@ -8,15 +8,14 @@ const Habitaciones = require("../Models/Habitaciones");
 // GET ALL RESERVAS
 const getReservas = async () => {
     const findReservas = await Reservas.findAll({
-      
       include: [
         {
           model: Clientes,
           attributes: ["doc_Identidad", "nombre", "apellidos", "email"],
         },
-          {
+        {
           model: Reserva_Items,
-          attributes: ["id","cantidad", "precio", "HabitacionId"],
+          attributes: ["id", "cantidad", "precio", "HabitacionId"],
           include: [
             {
               model: Habitaciones,
@@ -24,8 +23,9 @@ const getReservas = async () => {
               attributes: ["nroHabitacion"],
             },
           ],
-        },  
+        },
       ],
+      order: [["createdAt", "DESC"]],
     });
     if (findReservas == 0) return { error: "No hay reservas"}
     return { data: findReservas}

@@ -9,7 +9,7 @@ const getReserva_FiltrosHandler = async (req, res, next) => {
   try {
     // Obtenemos los parámetros del cuerpo de la solicitud
     let { fechaIngreso, fechaSalida, cantidadPersonas } = req.body;
-    console.log(fechaIngreso)
+   // console.log(fechaIngreso)
     if (fechaIngreso === null || fechaIngreso === undefined) {
        fechaIngreso = new Date()
     }
