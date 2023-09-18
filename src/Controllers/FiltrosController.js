@@ -3,7 +3,7 @@ const Habitacion_Detalles = require("../Models/Habitacion_Detalles");
 const Habitaciones = require("../Models/Habitaciones");
 const Reservas = require("../Models/Reservas");
 const Reserva_Items = require("../Models/Reserva_Items");
-const moment = require("moment");
+//const moment = require("moment");
 const Clientes = require("../Models/Clientes");
 const Reviews = require("../Models/Reviews");
 
@@ -71,7 +71,7 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
     habitacionesAgrupadas[claveGrupo].push(habitacion);
   });
 
-  // Filtrar y organizar habitaciones disponibles
+  // Filtra y organiza habitaciones disponibles
   for (const claveGrupo in habitacionesAgrupadas) {
     const habitacionesGrupo = habitacionesAgrupadas[claveGrupo];
     const habitacionesDisponiblesGrupo = habitacionesGrupo.filter(
@@ -81,17 +81,18 @@ const getReserva_Filtros = async (fechaInicio, fechaFin, cantidadPersonas) => {
             reserva.Habitacion.nroHabitacion === habitacion.nroHabitacion &&
             ((reserva.Reserva &&
               reserva.Reserva.fechaIngreso <= fechaFin &&
-              (reserva.Reserva.fechaSalida >= fechaInicio ||
-                reserva.Reserva.fechaSalida === null)) ||
+              ((reserva.Reserva &&
+                reserva.Reserva.fechaSalida >= fechaInicio) ||
+                (reserva.Reserva && reserva.Reserva.fechaSalida === null))) ||
               (reserva.Reserva &&
                 reserva.Reserva.fechaSalida === null &&
-                reserva.Reserva.fechaIngreso <= fechaFin))
+                reserva.Reserva && reserva.Reserva.fechaIngreso <= fechaFin))
           );
         });
         return !reservada;
       }
     );
-    //reserva.Reserva && reserva.Reserva.fechaIngreso
+ 
     if (habitacionesDisponiblesGrupo.length > 0) {
       const habitacion = habitacionesDisponiblesGrupo[0]; // Tomamos una habitación para obtener datos comunes
       habitacionesDisponibles.push({
@@ -148,7 +149,7 @@ const getFiltroReservasPorUsuario = async (UsuarioId) => {
     ],
     order: [["createdAt", "DESC"]],
   });
-  if (findReservas == 0) return { error: "No hay reservas" };
+  if (findReservas === 0) return { error: "No hay reservas" };
   return { data: findReservas };
 };
 //FILTRO REVIEWS POR USUARIO
@@ -160,7 +161,7 @@ const getFiltroReviewPorUsuario = async (UsuarioId) => {
     
     order: [["createdAt", "DESC"]],
   });
-  if (findReview == 0) return { error: "No hay reviews" };
+  if (findReview === 0) return { error: "No hay reviews" };
   return { data: findReview };
 };
 
