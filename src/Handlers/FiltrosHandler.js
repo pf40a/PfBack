@@ -3,13 +3,13 @@
 const { getReserva_Filtros, getFiltroReservasPorUsuario, getFiltroReviewPorUsuario } = require("../Controllers/FiltrosController");
 
 // Ruta para traer las habitaciones disponibles en un periodo de fecha
-const getReserva_FiltrosHandler = async (req, res) => {
+const getReserva_FiltrosHandler = async (req, res, next) => {
  // return res.status(200).send("get Reserva Filtros");
   
   try {
     // Obtenemos los parámetros del cuerpo de la solicitud
     let { fechaIngreso, fechaSalida, cantidadPersonas } = req.body;
-    
+    console.log(fechaIngreso)
     if (fechaIngreso === null || fechaIngreso === undefined) {
        fechaIngreso = new Date()
     }
@@ -27,8 +27,9 @@ const getReserva_FiltrosHandler = async (req, res) => {
     if (resultado.error) return res.status(400).json(resultado);
     return res.status(200).json(resultado);
   } catch (error) {
-        return res.status(401).json({error: error.message})
-    }
+    //return res.status(401).json({ error: error.message });
+    next(error);
+  }
 }
 
 const getReservaPorUsuario_FiltrosHandler = async (req, res) => {
