@@ -6,9 +6,9 @@ const getImagenHandler = async (req, res) => {
   try {
     const resultado = await getImagen(req.params.fileName);
 
-    if (!resultado.error) return res.status(200).json(resultado);
+    if (!resultado.error) return res.status(200).send(resultado);
 
-    return res.status(400).json(resultado);
+    return res.status(400).send(resultado);
 
   } catch (error) {
      return res.status(401).json(error);
