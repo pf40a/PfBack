@@ -31,12 +31,11 @@ const getReserva_FiltrosHandler = async (req, res, next) => {
     next(error);
   }
 }
-
+// FILTRO DE RESERVAS POR USUARIO
 const getReservaPorUsuario_FiltrosHandler = async (req, res) => {
   // return res.status(200).send("get Reserva Filtros");
 
   try {
-    // Obtenemos los parámetros del cuerpo de la solicitud
     const { UsuarioId } = req.params;
     const resultado = await getFiltroReservasPorUsuario(
       UsuarioId
@@ -53,7 +52,7 @@ const getReviewsPorUsuario_FiltrosHandler = async (req, res) => {
   // return res.status(200).send("get Reserva Filtros");
 
   try {
-    // Obtenemos los parámetros del cuerpo de la solicitud
+    
     const { UsuarioId } = req.params;
     const resultado = await getFiltroReviewPorUsuario(UsuarioId);
 

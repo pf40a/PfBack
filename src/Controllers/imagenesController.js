@@ -37,10 +37,11 @@ async function getImagen(fileName) {
   });
   const host = "https://s3-pf40a.s3.sa-east-1.amazonaws.com";
   const result = await client.send(command);
-  console.log(result);
+  console.log(result.Body);
 
   //Guarda la imagen en la carpeta image
   // result.Body.pipe(fs.createWriteStream("./image/" + `${fileName}`));
+  return result
   if (result) {
     //OBTENER LA URL
     var nombreArchivo = fileName;
