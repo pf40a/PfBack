@@ -9,7 +9,7 @@ const sendEmail = async (email, mensaje, asunto, nombre, fechaLlegada, fechaSali
     service: 'Gmail', // Nombre del servicio que se utiliza
     auth: {
       user: 'hotel.oasis.adm@gmail.com',
-      pass: 'akivtddsejzjspfa',
+      pass: 'ncgw qthm lmvb hogw',
     },
   });
 
