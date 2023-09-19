@@ -19,7 +19,6 @@ const client = new S3Client({
 async function postImagen(file) {
  // console.log(file)
   const stream = fs.createReadStream(file.tempFilePath);
- //const stream = fs.createReadStream(file);
   const uploadParams = {
     Bucket: AWS_BUCKET_NAME,
     Key: file.name,
@@ -37,10 +36,11 @@ async function getImagen(fileName) {
   });
   const host = "https://s3-pf40a.s3.sa-east-1.amazonaws.com";
   const result = await client.send(command);
-  console.log(result);
+  console.log(result.Body);
 
   //Guarda la imagen en la carpeta image
   // result.Body.pipe(fs.createWriteStream("./image/" + `${fileName}`));
+  
   if (result) {
     //OBTENER LA URL
     var nombreArchivo = fileName;
